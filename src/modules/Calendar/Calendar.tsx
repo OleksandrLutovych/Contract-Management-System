@@ -1,7 +1,7 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 
-const Calendar = () => {
+const Calendar = ({events}: any) => {
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
@@ -12,6 +12,7 @@ const Calendar = () => {
         center: "",
         end: "today prev,next",
       }}
+      events={events}
     />
   );
 };
