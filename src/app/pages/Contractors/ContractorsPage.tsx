@@ -1,5 +1,13 @@
 import React from "react";
+import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
 import DashboardView from "../../components/DashboardView";
+import {
+  PhoneIcon,
+  AddIcon,
+  WarningIcon,
+  DeleteIcon,
+  EditIcon,
+} from "@chakra-ui/icons";
 import {
   Box,
   TableContainer,
@@ -32,6 +40,7 @@ const ContractorsPage = () => {
                 <Th>Dane kontaktowe</Th>
                 <Th>Rodzaj</Th>
                 <Th>Status</Th>
+                <Th>Akcja</Th>
               </Tr>
             </Thead>
             <Tbody>
@@ -42,6 +51,34 @@ const ContractorsPage = () => {
                 <Td>Bydgoszcz</Td>
                 <Td>Private</Td>
                 <Td>Test</Td>
+                <Td>
+                  <Stack direction="row" spacing={1} align="center">
+                    <Button
+                      colorScheme="green"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <AddIcon boxSize={3} color="black" />
+                    </Button>
+                    <Button
+                      colorScheme="yellow"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <EditIcon boxSize={4} color="black" />
+                    </Button>
+                    <Button
+                      colorScheme="red"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <DeleteIcon boxSize={4} color="black" />
+                    </Button>
+                  </Stack>
+                </Td>
               </Tr>
             </Tbody>
           </Table>
