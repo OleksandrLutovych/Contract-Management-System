@@ -7,6 +7,7 @@ import {
   WarningIcon,
   DeleteIcon,
   EditIcon,
+  ViewIcon,
 } from "@chakra-ui/icons";
 import {
   Box,
@@ -24,7 +25,19 @@ import {
 const ContractorsPage = () => {
   return (
     <DashboardView>
+      
+      
       <Box width="100%">
+      <Button
+            colorScheme="blue"
+            mb={2}
+            padding={3}
+            size="md"
+            borderRadius="xl"
+            
+          >
+            Dodaj Klienta
+          </Button>
         <Heading textAlign="center" mb={4} fontSize="sm">
           Lista kontrahentów
         </Heading>
@@ -59,7 +72,7 @@ const ContractorsPage = () => {
                       size="md"
                       borderRadius="xl"
                     >
-                      <AddIcon boxSize={3} color="black" />
+                      <ViewIcon boxSize={4} color="##fcfced" />
                     </Button>
                     <Button
                       colorScheme="yellow"
@@ -67,7 +80,7 @@ const ContractorsPage = () => {
                       size="md"
                       borderRadius="xl"
                     >
-                      <EditIcon boxSize={4} color="black" />
+                      <EditIcon boxSize={4} color="#fcfced" />
                     </Button>
                     <Button
                       colorScheme="red"
@@ -75,7 +88,7 @@ const ContractorsPage = () => {
                       size="md"
                       borderRadius="xl"
                     >
-                      <DeleteIcon boxSize={4} color="black" />
+                      <DeleteIcon boxSize={4} color="#fcfced" />
                     </Button>
                   </Stack>
                 </Td>

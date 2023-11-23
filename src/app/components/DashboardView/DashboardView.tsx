@@ -1,3 +1,7 @@
+import { GoPeople } from "react-icons/go";
+import { IoNewspaperOutline } from "react-icons/io5";
+import { IoCalendarNumberOutline } from "react-icons/io5";
+import { TbReportAnalytics } from "react-icons/tb";
 import {
   IconButton,
   Avatar,
@@ -30,7 +34,10 @@ import {
   FiBell,
   FiChevronDown,
 } from "react-icons/fi";
-import { IconType } from "react-icons";
+import { 
+IconType,
+
+ } from "react-icons";
 import { useNavigate } from "react-router-dom";
 
 interface LinkItemProps {
@@ -53,10 +60,10 @@ interface SidebarProps extends BoxProps {
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Kontrachenci", icon: FiCompass, url: "/contractors" },
-  { name: "Kontrakty", icon: FiCompass, url: "/contracts" },
-  { name: "Raporty", icon: FiStar, url: "/reports" },
-  { name: "Kalendarz", icon: FiSettings, url: "/calendar" },
+  { name: "Kontrachenci", icon: GoPeople, url: "/contractors" },
+  { name: "Kontrakty", icon: IoNewspaperOutline, url: "/contracts" },
+  { name: "Raporty", icon: TbReportAnalytics, url: "/reports" },
+  { name: "Kalendarz", icon: IoCalendarNumberOutline, url: "/calendar" },
 ];
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
