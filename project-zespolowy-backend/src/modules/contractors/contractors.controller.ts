@@ -1,4 +1,4 @@
-import { ContractorsService } from './../service/contractors.service';
+import { ContractorsService } from './contractors.service';
 import {
   Body,
   Controller,
@@ -8,15 +8,16 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
-import { CreateContractorDto } from '../request/dto/create-contractor.dto';
+import { CreateContractorDto } from './dto/create-contractor.dto';
+import { Contractor } from './interfaces/contractors.interface';
 
 
 @Controller('contractors')
 export class ContractorsController {
   constructor(private contractorsService: ContractorsService) {}
   @Get()
-  async findAll(): Promise<any> {
-    this.contractorsService.findAll();
+  async findAll(): Promise<Contractor[]> {
+    return this.contractorsService.findAll();
   }
 
   @Get(':id')
@@ -26,7 +27,7 @@ export class ContractorsController {
 
   @Post()
   async create(@Body() dto: CreateContractorDto): Promise<any> {
-    this.contractorsService.create(dto);
+    return this.contractorsService.create(dto);
   }
 
   @Put(':id')

@@ -1,5 +1,4 @@
 export class CreateContractorDto {
-  id: number;
   name: string;
   country: string;
   city: string;
