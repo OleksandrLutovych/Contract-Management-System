@@ -1,7 +1,4 @@
-import GroupsIcon from '@mui/icons-material/Groups';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
-import LibraryBooksOutlinedIcon from '@mui/icons-material/LibraryBooksOutlined';
-import AssessmentOutlinedIcon from '@mui/icons-material/AssessmentOutlined';
+import { AiFillAndroid } from "react-icons/ai";
 import {
   IconButton,
   Avatar,
@@ -57,10 +54,10 @@ interface SidebarProps extends BoxProps {
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Kontrachenci", icon: GroupsIcon, url: "/contractors"},
-  { name: "Kontrakty", icon: LibraryBooksOutlinedIcon , url: "/contracts" },
-  { name: "Raporty", icon: AssessmentOutlinedIcon, url: "/reports" },
-  { name: "Kalendarz", icon: CalendarMonthIcon , url: "/calendar" },
+  { name: "Kontrachenci", icon: AiFillAndroid, url: "/contractors" },
+  { name: "Kontrakty", icon: FiCompass, url: "/contracts" },
+  { name: "Raporty", icon: FiStar, url: "/reports" },
+  { name: "Kalendarz", icon: FiSettings, url: "/calendar" },
 ];
 
 const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
