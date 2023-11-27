@@ -29,6 +29,9 @@ const ContractorsPage = () => {
 
   const navigate = useNavigate();
 
+  const handleOpenEdit = () => {}
+  const handleOpenDelete = () => {}
+
   return (
     <DashboardView>
       
@@ -87,7 +90,7 @@ const ContractorsPage = () => {
                       padding={3}
                       size="md"
                       borderRadius="xl"
-                      onClick={onOpen}
+                      onClick={handleOpenEdit}
                     >
                       <EditIcon boxSize={4} color="#fcfced" />
                     </Button>
@@ -96,12 +99,13 @@ const ContractorsPage = () => {
                       padding={3}
                       size="md"
                       borderRadius="xl"
-                      onClick={onOpen}
+                      onClick={handleOpenDelete}
                     >
                       <DeleteIcon boxSize={4} color="#fcfced" />
                     </Button>
 
                   </Stack>
+                  <ModalPageDelete isOpen={!isOpen} onClose={onClose} />
                   <ModalPage isOpen={isOpen} onClose={onClose} />
                 </Td>
               </Tr>
