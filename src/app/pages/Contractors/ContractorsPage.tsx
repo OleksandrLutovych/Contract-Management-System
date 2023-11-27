@@ -1,14 +1,6 @@
-import React from "react";
-import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
 import DashboardView from "../../components/DashboardView";
-import {
-  PhoneIcon,
-  AddIcon,
-  WarningIcon,
-  DeleteIcon,
-  EditIcon,
-  ViewIcon,
-} from "@chakra-ui/icons";
+import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
+import { IoMdAdd as AddContractorsIcon } from "react-icons/io";
 import {
   Box,
   TableContainer,
@@ -20,24 +12,30 @@ import {
   Td,
   Divider,
   Heading,
+  Button,
+  Stack,
+  useDisclosure,
 } from "@chakra-ui/react";
+import ContractorsAddModal from "./ContractorsAddModal";
 
 const ContractorsPage = () => {
+  const { isOpen, onClose, onOpen } = useDisclosure();
   return (
     <DashboardView>
-      
-      
       <Box width="100%">
-      <Button
-            colorScheme="blue"
-            mb={2}
-            padding={3}
-            size="md"
-            borderRadius="xl"
-            
-          >
-            Dodaj Klienta
-          </Button>
+        <ContractorsAddModal onClose={onClose} isOpen={isOpen} />
+
+        <Button
+          colorScheme="blue"
+          mb={2}
+          padding={2}
+          size="md"
+          borderRadius="xl"
+          onClick={onOpen}
+          rightIcon={<AddContractorsIcon />}
+        >
+          Dodaj
+        </Button>
         <Heading textAlign="center" mb={4} fontSize="sm">
           Lista kontrahentów
         </Heading>
