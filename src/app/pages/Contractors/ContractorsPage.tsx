@@ -1,10 +1,6 @@
-import React from "react";
-import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
+import { Button, Stack } from "@chakra-ui/react";
 import DashboardView from "../../components/DashboardView";
 import {
-  PhoneIcon,
-  AddIcon,
-  WarningIcon,
   DeleteIcon,
   EditIcon,
   ViewIcon,
@@ -20,9 +16,19 @@ import {
   Td,
   Divider,
   Heading,
+  useDisclosure,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import ModalPage from "./ModalPage";
+import ModalPageDelete from "./ModalPageDelete";
+import {useState} from 'react'
 
 const ContractorsPage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [events, setEvents] = useState()
+
+  const navigate = useNavigate();
+
   return (
     <DashboardView>
       
@@ -34,6 +40,7 @@ const ContractorsPage = () => {
             padding={3}
             size="md"
             borderRadius="xl"
+            onClick={onOpen}
             
           >
             Dodaj Klienta
@@ -71,6 +78,7 @@ const ContractorsPage = () => {
                       padding={3}
                       size="md"
                       borderRadius="xl"
+                      onClick={() => {navigate('/contractors/view')}}
                     >
                       <ViewIcon boxSize={4} color="##fcfced" />
                     </Button>
@@ -79,6 +87,7 @@ const ContractorsPage = () => {
                       padding={3}
                       size="md"
                       borderRadius="xl"
+                      onClick={onOpen}
                     >
                       <EditIcon boxSize={4} color="#fcfced" />
                     </Button>
@@ -87,10 +96,13 @@ const ContractorsPage = () => {
                       padding={3}
                       size="md"
                       borderRadius="xl"
+                      onClick={onOpen}
                     >
                       <DeleteIcon boxSize={4} color="#fcfced" />
                     </Button>
+
                   </Stack>
+                  <ModalPage isOpen={isOpen} onClose={onClose} />
                 </Td>
               </Tr>
             </Tbody>

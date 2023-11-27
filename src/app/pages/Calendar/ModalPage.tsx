@@ -21,7 +21,7 @@ const ModalPage = ({ isOpen, onClose }: Props) => {
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Modal Title</ModalHeader>
+        <ModalHeader>Dodaj / Usuń</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
         <Stack spacing={3}>
@@ -33,8 +33,13 @@ const ModalPage = ({ isOpen, onClose }: Props) => {
         </ModalBody>
 
         <ModalFooter>
+          <Button colorScheme="green" mr={3} onClick={onClose}>
+            Zapisz
+           
+          </Button>
           <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
+            Zamknij
+           
           </Button>
         </ModalFooter>
       </ModalContent>

@@ -1,3 +1,4 @@
 import ContractorsPage from "./ContractorsPage";
+import ContractorDetailPage from "./ContractorDetailPage";
 
-export default ContractorsPage;
+export  {ContractorsPage, ContractorDetailPage};

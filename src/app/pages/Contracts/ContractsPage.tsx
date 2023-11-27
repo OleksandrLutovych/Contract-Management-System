@@ -7,7 +7,12 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";import ModalPage from "./ModalPage";
+import {useState} from 'react'
+
 const ContractsPage = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [events, setEvents] = useState()
   return (
     <DashboardView>
       
@@ -19,7 +24,7 @@ const ContractsPage = () => {
             padding={3}
             size="md"
             borderRadius="xl"
-            
+            onClick={onOpen}
           >
             Dodaj Kontrakt
           </Button>

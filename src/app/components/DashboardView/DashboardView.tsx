@@ -27,9 +27,6 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import {
-  FiCompass,
-  FiStar,
-  FiSettings,
   FiMenu,
   FiBell,
   FiChevronDown,
