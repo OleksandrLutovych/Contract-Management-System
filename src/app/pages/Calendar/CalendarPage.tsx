@@ -1,21 +1,15 @@
 import Calendar from "../../../modules/Calendar/Calendar";
-import DashboardView from "../../components/DashboardView";
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Stack,
-  useDisclosure,
-} from "@chakra-ui/react";
-import ModalPage from "./ModalPage";
-import {useState} from 'react'
+import { Box, Button, Stack, useDisclosure } from "@chakra-ui/react";
+import { useState } from "react";
+import CalendarModalPage from "./CalendarModalPage";
+import DashboardContainer from "../../components/DashboardContainer";
 
 const CalendarPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [events, setEvents] = useState()
+  const [events, setEvents] = useState([]);
 
   return (
-    <DashboardView>
+    <DashboardContainer>
       <Box>
         <Stack direction="row" spacing={1} align="center">
           <Button
@@ -28,21 +22,11 @@ const CalendarPage = () => {
           >
             Dodaj Wydarzenie
           </Button>
-          <Button
-            colorScheme="red"
-            mb={2}
-            padding={3}
-            size="md"
-            borderRadius="xl"
-            onClick={onOpen}
-          >
-            Usuń Wydarzenie
-          </Button>
         </Stack>
-        <Calendar events={events}/>
-        <ModalPage isOpen={isOpen} onClose={onClose} />
+        <Calendar events={events} />
+        <CalendarModalPage isOpen={isOpen} onClose={onClose} />
       </Box>
-    </DashboardView>
+    </DashboardContainer>
   );
 };
 

@@ -12,11 +12,11 @@ import {
 } from "@chakra-ui/react";
 
 type Props = {
-  isOpen: any;
-  onClose: any;
+  isOpen: boolean;
+  onClose: () => void;
 };
 
-const ModalPage = ({ isOpen, onClose }: Props) => {
+const CalendarModalPage = ({ isOpen, onClose }: Props) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
@@ -24,12 +24,12 @@ const ModalPage = ({ isOpen, onClose }: Props) => {
         <ModalHeader>Modal Title</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
-        <Stack spacing={3}>
-        <Input placeholder='Nazwa wydarzenia'/>
-        
-        <Input placeholder='Data rozpoczęcia (DD-MM-RRRR)' />
-        <Input placeholder='Data zakończenia (DD-MM-RRRR)' />
-        </Stack>
+          <Stack spacing={3}>
+            <Input placeholder="Nazwa wydarzenia" />
+
+            <Input placeholder="Data rozpoczęcia (DD-MM-RRRR)" />
+            <Input placeholder="Data zakończenia (DD-MM-RRRR)" />
+          </Stack>
         </ModalBody>
 
         <ModalFooter>
@@ -41,4 +41,4 @@ const ModalPage = ({ isOpen, onClose }: Props) => {
     </Modal>
   );
 };
-export default ModalPage;
+export default CalendarModalPage;

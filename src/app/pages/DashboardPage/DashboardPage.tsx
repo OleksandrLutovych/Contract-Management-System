@@ -1,5 +1,5 @@
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
-import DashboardView from "../../components/DashboardView";
+import DashboardView from "../../components/DashboardContainer";
 import 'react-vertical-timeline-component/style.min.css';
 import { CalendarIcon, CheckCircleIcon, CheckIcon, WarningTwoIcon, BellIcon, ViewIcon  } from '@chakra-ui/icons'
 

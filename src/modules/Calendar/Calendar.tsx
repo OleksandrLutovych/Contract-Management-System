@@ -1,12 +1,18 @@
 import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
+import { FC } from "react";
+import { Event } from "./types";
 
-const Calendar = ({events}: any) => {
+type Props = {
+  events: Event[];
+};
+
+const Calendar: FC<Props> = ({ events }) => {
   return (
     <FullCalendar
       plugins={[dayGridPlugin]}
       initialView="dayGridMonth"
-      height="100%"
+      height="550px"
       headerToolbar={{
         start: "title",
         center: "",

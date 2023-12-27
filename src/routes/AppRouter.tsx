@@ -5,12 +5,14 @@ import ContractorsPage from "../app/pages/Contractors";
 import DashboardPage from "../app/pages/DashboardPage/DashboardPage";
 import ContractsPage from "../app/pages/Contracts";
 import ReportsPage from "../app/pages/Reports/ReportsPage";
+import ContractorsAddPage from "../app/pages/Contractors/ContractorsAddPage";
 
 const AppRouter = () => {
   return (
     <Routes>
       <Route path="/dashboard" element={<DashboardPage />} />
       <Route path="/contractors" element={<ContractorsPage />} />
+      <Route path="/contractors/add" element={<ContractorsAddPage />} />
       <Route path="/contracts" element={<ContractsPage />} />
       <Route path="/reports" element={<ReportsPage />} />
       <Route path="/calendar" element={<CalendarPage />} />

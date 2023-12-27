@@ -1,16 +1,4 @@
-
-import React from "react";
-import SortTable from "./SortTable.jsx";
-import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
-import DashboardView from "../../components/DashboardView";
-// import {
-//   PhoneIcon,
-//   AddIcon,
-//   WarningIcon,
-//   DeleteIcon,
-//   EditIcon,
-//   ViewIcon,
-// } from "@chakra-ui/icons";
+import DashboardView from "../../components/DashboardContainer";
 import {
   Box,
   TableContainer,
@@ -22,125 +10,131 @@ import {
   Td,
   Divider,
   Heading,
+  Button,
+  Flex,
+  Input,
+  Spinner,
+  Stack,
 } from "@chakra-ui/react";
+import { useQuery } from "@tanstack/react-query";
+import { ContractorsApi } from "../../../api/contractors-api";
+import { Contractor } from "./types";
+import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
+import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const ContractorsPage = () => {
+  const [value, setValue] = useState<string>("");
+  const navigate = useNavigate();
+
+  const { data, isLoading } = useQuery<Contractor[]>({
+    queryKey: ["contractors"],
+    queryFn: async () => {
+      const response = await ContractorsApi.getAll();
+      const { data } = response;
+
+      return data;
+    },
+  });
+
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  const onSearch = (searchTerm: string) => {
+    setValue(searchTerm);
+  };
+
   return (
     <DashboardView>
-       
-      
       <Box width="100%">
-      <Heading textAlign="center" mb={4} fontSize="me" font-family="Candara" textColor={"blue.100"}>
-          Lista Kontrahentów 
-          <tr>
-            <Button
-            colorScheme="blue"
-            mb={1}
-            padding={3}
-            size="md"
-            borderRadius="xl"
-        
-            
-          >
-            Dodaj Kontrahenta
-          </Button>
-          </tr>
+        <Heading
+          textAlign="center"
+          mb={4}
+          fontSize="me"
+          font-family="Candara"
+          textColor={"blue.100"}
+        >
+          Lista Kontrahentów
         </Heading>
-       
-        
+        <Button
+          colorScheme="blue"
+          mb={1}
+          padding={3}
+          size="md"
+          borderRadius="xl"
+          onClick={() => navigate("/contractors/add")}
+        >
+          Dodaj Kontrahenta
+        </Button>
+
         <Divider />
-        <SortTable/>
-        
-        {/* <TableContainer>
+
+        <Flex alignItems="center" gap={1}>
+          <Input
+            type="text"
+            placeholder="Wyszukaj..."
+            value={value}
+            onChange={onChange}
+            width="30%"
+          />
+          <Button onClick={() => onSearch(value)}>Pokaż</Button>
+        </Flex>
+
+        <TableContainer>
+          {isLoading && <Spinner size="lg" ml="50%" />}
+
           <Table variant="simple">
             <Thead>
               <Tr>
-                <Th>Id</Th>
                 <Th>Nazwa kontrahenta</Th>
-                <Th>Numer kontraktu</Th>
-                <Th>Dane kontaktowe</Th>
-                <Th>Rodzaj</Th>
-                <Th>Status</Th>
+                <Th>Adres</Th>
+                <Th>Email</Th>
+                <Th>NIP</Th>
                 <Th>Akcja</Th>
               </Tr>
             </Thead>
             <Tbody>
-            
-              <Tr>
-                <Td>1</Td>
-                <Td>Jan Kowalski</Td>
-                <Td>742</Td>
-                <Td>Bydgoszcz</Td>
-                <Td>Private</Td>
-                <Td>Test</Td>
-                <Td>
-                  <Stack direction="row" spacing={1} align="center">
-                    <Button
-                      colorScheme="green"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <ViewIcon boxSize={4} color="##fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="yellow"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <EditIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="red"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <DeleteIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                  </Stack>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>2</Td>
-                <Td>Anna Nowak</Td>
-                <Td>743</Td>
-                <Td>Toruń</Td>
-                <Td>Private</Td>
-                <Td>Test</Td>
-                <Td>
-                  <Stack direction="row" spacing={1} align="center">
-                    <Button
-                      colorScheme="green"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <ViewIcon boxSize={4} color="##fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="yellow"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <EditIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="red"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <DeleteIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                  </Stack>
-                </Td>
-              </Tr>
+              {data?.map(({ name, city, country, email, nip }) => (
+                <Tr key={nip}>
+                  <Td>{name}</Td>
+                  <Td>
+                    {country}, {city}
+                  </Td>
+                  <Td>{email}</Td>
+                  <Td>{nip}</Td>
+                  <Td>
+                    <Stack direction="row" spacing={1} align="center">
+                      <Button
+                        colorScheme="green"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <ViewIcon boxSize={4} color="##fcfced" />
+                      </Button>
+                      <Button
+                        colorScheme="yellow"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <EditIcon boxSize={4} color="#fcfced" />
+                      </Button>
+                      <Button
+                        colorScheme="red"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <DeleteIcon boxSize={4} color="#fcfced" />
+                      </Button>
+                    </Stack>
+                  </Td>
+                </Tr>
+              ))}
             </Tbody>
           </Table>
-        </TableContainer> */}
+        </TableContainer>
       </Box>
     </DashboardView>
   );

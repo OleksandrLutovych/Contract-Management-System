@@ -26,18 +26,8 @@ import {
   Image,
   Divider,
 } from "@chakra-ui/react";
-import {
-  FiCompass,
-  FiStar,
-  FiSettings,
-  FiMenu,
-  FiBell,
-  FiChevronDown,
-} from "react-icons/fi";
-import { 
-IconType,
-
- } from "react-icons";
+import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
+import { IconType } from "react-icons";
 import { useNavigate } from "react-router-dom";
 
 interface LinkItemProps {
@@ -87,7 +77,6 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           onClick={() => navigate("*")}
           cursor="pointer"
           ml="-10px"
-
         >
           <Image
             src="https://usercentrics.com/wp-content/uploads/2022/09/uc_google_500x500-1.svg?fbclid=IwAR23v3o1HHmRqTs3yj7vn-kt5NOwH_N2gUdmEIEy1msqC1lS_OF4eYlklW8"
@@ -244,7 +233,7 @@ type Props = {
   children: JSX.Element;
 };
 
-const DashboardView = ({ children }: Props) => {
+const DashboardContainer = ({ children }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
@@ -271,8 +260,8 @@ const DashboardView = ({ children }: Props) => {
           bgColor="white"
           padding={3}
           borderRadius="md"
-          width='100%'
-          height='500px'
+          width="100%"
+          height="100%"
         >
           {children}
         </Box>
@@ -281,4 +270,4 @@ const DashboardView = ({ children }: Props) => {
   );
 };
 
-export default DashboardView;
+export default DashboardContainer;

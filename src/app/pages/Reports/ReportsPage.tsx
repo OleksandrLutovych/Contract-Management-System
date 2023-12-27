@@ -1,4 +1,4 @@
-import DashboardView from "../../components/DashboardView";
+import DashboardView from "../../components/DashboardContainer";
 import { Text } from "@chakra-ui/react";
 import {
   Box,
