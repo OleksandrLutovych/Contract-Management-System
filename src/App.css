@@ -1,0 +1,77 @@
+
+
+.App {
+    display: flex;
+    flex-direction: center;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.table-container { 
+    width: 100%;
+}
+
+.table-container table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+table th,
+table td {
+    padding: 10px;
+    text-align: left;
+    min-width: 150px;
+}
+
+table th{
+    color: rgb(70, 113, 192);
+    font-family: "Candara";
+}
+
+tr {
+    border-bottom: 1px solid rgb(187, 212, 230);
+}
+
+
+.search-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    outline-color: rgb(253, 122, 8);
+    border: 1px solid rgb(187, 212, 230);
+}
+
+.search-container2 {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.search-inner {
+    display: flex;
+}
+
+.dropdown {
+    background-color:white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid rgb(187, 212, 230);
+}
+
+.dropdown:empty {
+    border: none;
+}
+
+.dropdown-row{
+    cursor: pointer;
+    text-align: start;
+    margin: 2px 0;
+}
+
+input {
+    width: 220px;
+}
+

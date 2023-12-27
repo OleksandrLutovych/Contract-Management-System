@@ -2,6 +2,8 @@ import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { BrowserRouter } from "react-router-dom";
 import AppRouter from "./routes";
 
+
+
 const theme = extendTheme({
   colors: {
     brand: {
@@ -13,12 +15,14 @@ const theme = extendTheme({
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
+    <ChakraProvider theme={theme}> 
+  
       <BrowserRouter>
         <AppRouter />
       </BrowserRouter>
-    </ChakraProvider>
+    </ChakraProvider> 
+    
   );
-}
+};
 
 export default App;

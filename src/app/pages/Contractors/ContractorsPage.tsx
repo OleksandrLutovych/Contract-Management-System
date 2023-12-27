@@ -1,14 +1,16 @@
+
 import React from "react";
+import SortTable from "./SortTable.jsx";
 import { Button, ButtonGroup, Stack } from "@chakra-ui/react";
 import DashboardView from "../../components/DashboardView";
-import {
-  PhoneIcon,
-  AddIcon,
-  WarningIcon,
-  DeleteIcon,
-  EditIcon,
-  ViewIcon,
-} from "@chakra-ui/icons";
+// import {
+//   PhoneIcon,
+//   AddIcon,
+//   WarningIcon,
+//   DeleteIcon,
+//   EditIcon,
+//   ViewIcon,
+// } from "@chakra-ui/icons";
 import {
   Box,
   TableContainer,
@@ -25,25 +27,31 @@ import {
 const ContractorsPage = () => {
   return (
     <DashboardView>
-      
+       
       
       <Box width="100%">
-      <Button
+      <Heading textAlign="center" mb={4} fontSize="me" font-family="Candara" textColor={"blue.100"}>
+          Lista Kontrahentów 
+          <tr>
+            <Button
             colorScheme="blue"
-            mb={2}
+            mb={1}
             padding={3}
             size="md"
             borderRadius="xl"
+        
             
           >
-            Dodaj Klienta
+            Dodaj Kontrahenta
           </Button>
-        <Heading textAlign="center" mb={4} fontSize="sm">
-          Lista kontrahentów
+          </tr>
         </Heading>
+       
+        
         <Divider />
-
-        <TableContainer>
+        <SortTable/>
+        
+        {/* <TableContainer>
           <Table variant="simple">
             <Thead>
               <Tr>
@@ -57,11 +65,48 @@ const ContractorsPage = () => {
               </Tr>
             </Thead>
             <Tbody>
+            
               <Tr>
                 <Td>1</Td>
                 <Td>Jan Kowalski</Td>
-                <Td>#742</Td>
+                <Td>742</Td>
                 <Td>Bydgoszcz</Td>
+                <Td>Private</Td>
+                <Td>Test</Td>
+                <Td>
+                  <Stack direction="row" spacing={1} align="center">
+                    <Button
+                      colorScheme="green"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <ViewIcon boxSize={4} color="##fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="yellow"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <EditIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="red"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <DeleteIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                  </Stack>
+                </Td>
+              </Tr>
+              <Tr>
+                <Td>2</Td>
+                <Td>Anna Nowak</Td>
+                <Td>743</Td>
+                <Td>Toruń</Td>
                 <Td>Private</Td>
                 <Td>Test</Td>
                 <Td>
@@ -95,7 +140,7 @@ const ContractorsPage = () => {
               </Tr>
             </Tbody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
       </Box>
     </DashboardView>
   );
