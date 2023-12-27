@@ -55,25 +55,25 @@ function App() {
                         
                         <Stack direction="row" spacing={1} align="center">
                     <Button
-                      colorScheme="green"
+                      colorScheme="gray"
                       padding={3}
-                      size="md"
+                      size="sm"
                       borderRadius="xl"
                     >
                       <ViewIcon boxSize={4} color="##fcfced" />
                     </Button>
                     <Button
-                      colorScheme="yellow"
+                      colorScheme="cyan"
                       padding={3}
-                      size="md"
+                      size="sm"
                       borderRadius="xl"
                     >
                       <EditIcon boxSize={4} color="#fcfced" />
                     </Button>
                     <Button
-                      colorScheme="red"
+                      colorScheme="telegram"
                       padding={3}
-                      size="md"
+                      size="sm"
                       borderRadius="xl"
                     >
                       <DeleteIcon boxSize={4} color="#fcfced" />
@@ -106,9 +106,10 @@ function App() {
         
         <div className="search-container2">
             <h4>Wyszukiwanie</h4>
-            <div className="search-inner">
+            <div className="search-inner" >
                 <input 
                 type="text" 
+                
                 placeholder="Nazwa kontrahenta"   
                 value={value} 
                 onChange={onChange} />

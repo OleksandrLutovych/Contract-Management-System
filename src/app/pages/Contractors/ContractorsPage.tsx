@@ -39,7 +39,7 @@ const ContractorsPage = () => {
             padding={3}
             size="md"
             borderRadius="xl"
-        
+            // onClick={}
             
           >
             Dodaj Kontrahenta
@@ -51,96 +51,7 @@ const ContractorsPage = () => {
         <Divider />
         <SortTable/>
         
-        {/* <TableContainer>
-          <Table variant="simple">
-            <Thead>
-              <Tr>
-                <Th>Id</Th>
-                <Th>Nazwa kontrahenta</Th>
-                <Th>Numer kontraktu</Th>
-                <Th>Dane kontaktowe</Th>
-                <Th>Rodzaj</Th>
-                <Th>Status</Th>
-                <Th>Akcja</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-            
-              <Tr>
-                <Td>1</Td>
-                <Td>Jan Kowalski</Td>
-                <Td>742</Td>
-                <Td>Bydgoszcz</Td>
-                <Td>Private</Td>
-                <Td>Test</Td>
-                <Td>
-                  <Stack direction="row" spacing={1} align="center">
-                    <Button
-                      colorScheme="green"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <ViewIcon boxSize={4} color="##fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="yellow"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <EditIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="red"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <DeleteIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                  </Stack>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>2</Td>
-                <Td>Anna Nowak</Td>
-                <Td>743</Td>
-                <Td>Toruń</Td>
-                <Td>Private</Td>
-                <Td>Test</Td>
-                <Td>
-                  <Stack direction="row" spacing={1} align="center">
-                    <Button
-                      colorScheme="green"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <ViewIcon boxSize={4} color="##fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="yellow"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <EditIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                    <Button
-                      colorScheme="red"
-                      padding={3}
-                      size="md"
-                      borderRadius="xl"
-                    >
-                      <DeleteIcon boxSize={4} color="#fcfced" />
-                    </Button>
-                  </Stack>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </TableContainer> */}
+        
       </Box>
     </DashboardView>
   );
