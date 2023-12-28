@@ -13,7 +13,7 @@ const ReportsPage = () => {
     <DashboardView>
       <Stack direction="row" spacing={1} align="center">
           <Button
-            colorScheme="green"
+            colorScheme="blue"
             mb={2}
             padding={3}
             size="md"
@@ -23,7 +23,7 @@ const ReportsPage = () => {
             Dodaj Raport
           </Button>
           <Button
-            colorScheme="yellow"
+            colorScheme="gray"
             mb={2}
             padding={3}
             size="md"
@@ -33,7 +33,7 @@ const ReportsPage = () => {
             Edytuj Raport
           </Button>
           <Button
-            colorScheme="red"
+            colorScheme="orange"
             mb={2}
             padding={3}
             size="md"

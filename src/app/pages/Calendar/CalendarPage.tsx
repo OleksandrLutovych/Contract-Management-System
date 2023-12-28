@@ -13,7 +13,7 @@ const CalendarPage = () => {
       <Box>
         <Stack direction="row" spacing={1} align="center">
           <Button
-            colorScheme="green"
+            colorScheme="blue"
             mb={2}
             padding={3}
             size="md"
