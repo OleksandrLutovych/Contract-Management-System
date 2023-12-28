@@ -2,12 +2,35 @@ import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeli
 import DashboardView from "../../components/DashboardContainer";
 import 'react-vertical-timeline-component/style.min.css';
 import { CalendarIcon, CheckCircleIcon, CheckIcon, WarningTwoIcon, BellIcon, ViewIcon  } from '@chakra-ui/icons'
-import { templateRows, Grid, GridItem } from '@chakra-ui/react'
+import { Box, templateRows, Grid, GridItem } from '@chakra-ui/react'
 
 const DashboardPage = () => {
   return (
     <DashboardView>
-      
+      <Box>
+      <Grid templateRows gap={6}>
+          <GridItem w='100%' bg='blue.500'
+  
+  textAlign="center"
+  
+  fontSize="5xl"
+  font-family="Candara"
+  textColor={"white"}>
+
+  Kontrakty</GridItem>
+  <GridItem w='100%' bg='blue.500'
+  
+  textAlign="center"
+  
+  fontSize="5xl"
+  font-family="Candara"
+  textColor={"white"}>
+
+  Kontrahenci</GridItem>
+  
+    
+  </Grid>
+      </Box>
         <VerticalTimeline>
           <VerticalTimelineElement
             className="vertical-timeline-element--work"
@@ -70,7 +93,18 @@ const DashboardPage = () => {
             
           </VerticalTimelineElement>
         </VerticalTimeline>
+<Box>
+<GridItem w='100%' bg='blue.500'
 
+textAlign="center"
+
+fontSize="5xl"
+font-family="Candara"
+textColor={"white"}>
+
+Kalendarz</GridItem>
+
+</Box>
       
     </DashboardView >
   );
