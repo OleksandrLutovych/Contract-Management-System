@@ -6,14 +6,45 @@ import {
   ButtonGroup,
   Stack,
   useDisclosure,
-  Heading
+  Heading,
+  Flex,
+  Divider,
+  Input,
+  Spinner,
 } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
+import { useQuery } from "@tanstack/react-query";
+import { ContractsApi } from "../../../api/contracts-api";
+import { Contract } from "./types";
+import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+
 const ContractsPage = () => {
+  const [value, setValue] = useState<string>("");
+  const navigate = useNavigate();
+
+  const { data, isLoading } = useQuery<Contract[]>({
+    queryKey: ["contracts"],
+    queryFn: async () => {
+      const response = await ContractsApi.getAll();
+      const { data } = response;
+
+      return data;
+    },
+  });
+
+  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setValue(event.target.value);
+  };
+  const onSearch = (searchTerm: string) => {
+    setValue(searchTerm);
+  };
+
   return (
     <DashboardView>
       <Box>
-      <Heading
+        <Heading
           textAlign="center"
           mb={4}
           fontSize="me"
@@ -22,23 +53,36 @@ const ContractsPage = () => {
         >
           Kontrakty
         </Heading>
-        <Stack direction="row" spacing={1} align="center">
-          <Button
-            colorScheme="blue"
-            mb={2}
-            padding={3}
-            size="md"
-            borderRadius="xl"
+        
+        <Button
+          colorScheme="blue"
+          mb={1}
+          padding={3}
+          size="md"
+          borderRadius="xl"
+          onClick={() => navigate("/contracts/add")}
+        >
+          Dodaj Kontrakt
+        </Button>
 
-          >
-            Dodaj Kontrakt
-          </Button>
-          
-        </Stack>
+        <Divider />
 
-        <TableContainer>
+        <Flex alignItems="center" gap={1}>
+          <Input
+            type="text"
+            placeholder="Wyszukaj..."
+            value={value}
+            onChange={onChange}
+            width="30%"
+          />
+          <Button onClick={() => onSearch(value)}>Pokaż</Button>
+        </Flex>
+
+    <TableContainer>
+      
           <Table variant='simple'>
             <TableCaption textColor={"red"}>napisać kod: dla aktualnych kontraktów status "aktywny" i numer kontraktu widoczny w kolorze blue.300, dla nieaktualnych w kolorze red. Teraz z ręki to wpisałam, ale fajnie, gdyby było zautomatyzowane</TableCaption>
+            
             <Thead>
               <Tr>
                 <Th>Numer Kontraktu</Th>
@@ -50,6 +94,7 @@ const ContractsPage = () => {
                 <Th>Akcja</Th>
               </Tr>
             </Thead>
+
             <Tbody>
               <Tr>
               <Td textColor={"blue.300"}>917</Td>
@@ -159,6 +204,47 @@ const ContractsPage = () => {
                     </Stack>
                 </Td>
               </Tr>
+
+              
+              {data?.map(({ numer, nazwa, partner, dataPodpisania, dataWaznosci, status }) => (
+                <Tr key={numer}>
+                  <Td>{numer}</Td>
+                  <Td>{nazwa}</Td> 
+                  <Td>{partner}</Td>
+                  <Td>{dataPodpisania}</Td>
+                  <Td>{dataWaznosci}</Td>
+                  <Td>{status}</Td>
+                  <Td>
+                    <Stack direction="row" spacing={1} align="center">
+                      <Button
+                        colorScheme="green"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <ViewIcon boxSize={4} color="##fcfced" />
+                      </Button>
+                      <Button
+                        colorScheme="yellow"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <EditIcon boxSize={4} color="#fcfced" />
+                      </Button>
+                      <Button
+                        colorScheme="red"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <DeleteIcon boxSize={4} color="#fcfced" />
+                      </Button>
+                    </Stack>
+                  </Td>
+                </Tr>
+              ))}
+            
             </Tbody>
             <Tfoot>
               <Tr>
@@ -167,8 +253,6 @@ const ContractsPage = () => {
             </Tfoot>
           </Table>
         </TableContainer>
-
-
       </Box>
     </DashboardView>
   );

@@ -6,6 +6,7 @@ import DashboardPage from "../app/pages/DashboardPage/DashboardPage";
 import ContractsPage from "../app/pages/Contracts";
 import ReportsPage from "../app/pages/Reports/ReportsPage";
 import ContractorsAddPage from "../app/pages/Contractors/ContractorsAddPage";
+import ContractsAddPage from "../app/pages/Contracts/ContractsAddPage";
 
 const AppRouter = () => {
   return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
       <Route path="/contractors" element={<ContractorsPage />} />
       <Route path="/contractors/add" element={<ContractorsAddPage />} />
       <Route path="/contracts" element={<ContractsPage />} />
+      <Route path="/contracts/add" element={<ContractsAddPage />} />
       <Route path="/reports" element={<ReportsPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/auth" element={<AuthenticationPage />} />
