@@ -30,7 +30,7 @@ import {
 import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { useNavigate } from "react-router-dom";
-import { Grid, GridItem } from '@chakra-ui/react'
+
 
 interface LinkItemProps {
   name: string;
@@ -121,7 +121,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: "cyan.400",
+          bg: "orange",
           color: "white",
         }}
         {...rest}
@@ -263,51 +263,8 @@ const DashboardContainer = ({ children }: Props) => {
           borderRadius="md"
           width="100%"
           height="100%"
-        >
-          <Grid templateRows gap={6}>
-          <GridItem w='100%' bg='blue.500'
-  
-  textAlign="center"
-  
-  fontSize="5xl"
-  font-family="Candara"
-  textColor={"white"}>
-
-  Kontrakty</GridItem>
-  <GridItem w='100%' bg='blue.500'
-  
-  textAlign="center"
-  
-  fontSize="5xl"
-  font-family="Candara"
-  textColor={"white"}>
-
-  Kontrahenci</GridItem>
-  <GridItem w='100%' bg='blue.500'
-  
-          textAlign="center"
-          
-          fontSize="5xl"
-          font-family="Candara"
-          textColor={"white"}>
-        
-          Time Line
-        
-    {children}</GridItem>
-    
-  <GridItem w='100%' bg='blue.500'
-
-textAlign="center"
-
-fontSize="5xl"
-font-family="Candara"
-textColor={"white"}>
-
-Kalendarz</GridItem>
-</Grid>
-          
-
-          
+        >{children}
+         
         </Box>
       </Box>
     </Box>
