@@ -1,21 +1,5 @@
 import DashboardView from "../../components/DashboardContainer";
-import {
-  Box,
-  TableContainer,
-  Thead,
-  Table,
-  Tr,
-  Th,
-  Tbody,
-  Td,
-  Divider,
-  Heading,
-  Button,
-  Flex,
-  Input,
-  Spinner,
-  Stack,
-} from "@chakra-ui/react";
+import { Box, TableContainer, Thead, Table, Tr, Th, Tbody, Td, Divider, Heading, Button, Flex, Input, Spinner, Stack,} from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { ContractorsApi } from "../../../api/contractors-api";
 import { Contractor } from "./types";
@@ -26,13 +10,11 @@ import { useNavigate } from "react-router-dom";
 const ContractorsPage = () => {
   const [value, setValue] = useState<string>("");
   const navigate = useNavigate();
-
   const { data, isLoading } = useQuery<Contractor[]>({
     queryKey: ["contractors"],
     queryFn: async () => {
       const response = await ContractorsApi.getAll();
       const { data } = response;
-
       return data;
     },
   });
@@ -48,41 +30,19 @@ const ContractorsPage = () => {
     <DashboardView>
       <Box width="100%">
         <Heading
-          textAlign="center"
-          mb={4}
-          fontSize="me"
-          font-family="Candara"
-          textColor={"blue.100"}
-        >
-          Lista Kontrahentów
+          textAlign="center" mb={4} fontSize="me" font-family="Candara" textColor={"blue.100"}>Lista Kontrahentów
         </Heading>
         <Button
-          colorScheme="blue"
-          mb={1}
-          padding={3}
-          size="md"
-          borderRadius="xl"
-          onClick={() => navigate("/contractors/add")}
-        >
-          Dodaj Kontrahenta
+          colorScheme="blue" mb={1} padding={3} size="md" borderRadius="xl"
+          onClick={() => navigate("/contractors/add")}>Dodaj Kontrahenta
         </Button>
-
         <Divider />
-
         <Flex alignItems="center" gap={1}>
-          <Input
-            type="text"
-            placeholder="Wyszukaj..."
-            value={value}
-            onChange={onChange}
-            width="30%"
-          />
+          <Input type="text" placeholder="Wyszukaj..." value={value} onChange={onChange} width="30%"/>
           <Button onClick={() => onSearch(value)}>Pokaż</Button>
         </Flex>
-
         <TableContainer>
           {isLoading && <Spinner size="lg" ml="50%" />}
-
           <Table variant="simple">
             <Thead>
               <Tr>
@@ -97,35 +57,18 @@ const ContractorsPage = () => {
               {data?.map(({ name, city, country, email, nip }) => (
                 <Tr key={nip}>
                   <Td>{name}</Td>
-                  <Td>
-                    {country}, {city}
-                  </Td>
+                  <Td>{country}, {city}</Td>
                   <Td>{email}</Td>
                   <Td>{nip}</Td>
                   <Td>
                     <Stack direction="row" spacing={1} align="center">
-                      <Button
-                        colorScheme="green"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
+                      <Button colorScheme="green" padding={3} size="md" borderRadius="xl">
                         <ViewIcon boxSize={4} color="##fcfced" />
                       </Button>
-                      <Button
-                        colorScheme="yellow"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
+                      <Button colorScheme="yellow" padding={3} size="md" borderRadius="xl">
                         <EditIcon boxSize={4} color="#fcfced" />
                       </Button>
-                      <Button
-                        colorScheme="red"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
+                      <Button colorScheme="red" padding={3} size="md" borderRadius="xl">
                         <DeleteIcon boxSize={4} color="#fcfced" />
                       </Button>
                     </Stack>

@@ -8,28 +8,10 @@ const DashboardPage = () => {
   return (
     <DashboardView>
       <Box>
-      <Grid templateRows gap={6}>
-          <GridItem w='100%' bg='blue.500'
-  
-  textAlign="center"
-  
-  fontSize="5xl"
-  font-family="Candara"
-  textColor={"white"}>
-
-  Kontrakty</GridItem>
-  <GridItem w='100%' bg='blue.500'
-  
-  textAlign="center"
-  
-  fontSize="5xl"
-  font-family="Candara"
-  textColor={"white"}>
-
-  Kontrahenci</GridItem>
-  
-    
-  </Grid>
+        <Grid templateRows gap={6}>
+          <GridItem w='100%' bg='blue.500' textAlign="center" fontSize="5xl" font-family="Candara" textColor={"white"}>Kontrakty</GridItem>
+          <GridItem w='100%' bg='blue.500' textAlign="center" fontSize="5xl" font-family="Candara" textColor={"white"}>Kontrahenci</GridItem>
+        </Grid>
       </Box>
         <VerticalTimeline>
           <VerticalTimelineElement
@@ -93,19 +75,9 @@ const DashboardPage = () => {
             
           </VerticalTimelineElement>
         </VerticalTimeline>
-<Box>
-<GridItem w='100%' bg='blue.500'
-
-textAlign="center"
-
-fontSize="5xl"
-font-family="Candara"
-textColor={"white"}>
-
-Kalendarz</GridItem>
-
-</Box>
-      
+        <Box>
+          <GridItem w='100%' bg='blue.500' textAlign="center" fontSize="5xl" font-family="Candara" textColor={"white"}>Kalendarz</GridItem>
+        </Box>
     </DashboardView >
   );
 };
