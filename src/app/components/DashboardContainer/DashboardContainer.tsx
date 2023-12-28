@@ -1,5 +1,6 @@
 import { GoPeople } from "react-icons/go";
 import { IoNewspaperOutline } from "react-icons/io5";
+import { IoDocumentTextOutline } from "react-icons/io5";
 import { IoCalendarNumberOutline } from "react-icons/io5";
 import { TbReportAnalytics } from "react-icons/tb";
 import {
@@ -29,6 +30,7 @@ import {
 import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
 import { IconType } from "react-icons";
 import { useNavigate } from "react-router-dom";
+import { Grid, GridItem } from '@chakra-ui/react'
 
 interface LinkItemProps {
   name: string;
@@ -51,7 +53,7 @@ interface SidebarProps extends BoxProps {
 
 const LinkItems: Array<LinkItemProps> = [
   { name: "Kontrachenci", icon: GoPeople, url: "/contractors" },
-  { name: "Kontrakty", icon: IoNewspaperOutline, url: "/contracts" },
+  { name: "Kontrakty", icon: IoDocumentTextOutline, url: "/contracts" },
   { name: "Raporty", icon: TbReportAnalytics, url: "/reports" },
   { name: "Kalendarz", icon: IoCalendarNumberOutline, url: "/calendar" },
 ];
@@ -69,27 +71,22 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}
     >
-      <Flex h="20" alignItems="center" mx="8">
+      <Flex h="20" alignItems="center" mx="5">
         <Flex
           h="20"
           alignItems="center"
-          mx="8"
+          mx="7"
           onClick={() => navigate("*")}
           cursor="pointer"
-          ml="-10px"
+          ml="0px"
         >
           <Image
-            src="https://usercentrics.com/wp-content/uploads/2022/09/uc_google_500x500-1.svg?fbclid=IwAR23v3o1HHmRqTs3yj7vn-kt5NOwH_N2gUdmEIEy1msqC1lS_OF4eYlklW8"
-            width="80px"
+            //src="https://usercentrics.com/wp-content/uploads/2022/09/uc_google_500x500-1.svg?fbclid=IwAR23v3o1HHmRqTs3yj7vn-kt5NOwH_N2gUdmEIEy1msqC1lS_OF4eYlklW8"
+            src="https://i.ibb.co/8YGJMbZ/Microsoft-Teams-image-4.png"
+            
+            
           />
-          <Text
-            opacity="0.8"
-            color="blue.400"
-            fontWeight="bold"
-            fontSize="x-small"
-          >
-            CONTRACTORS
-          </Text>
+          
         </Flex>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
@@ -199,7 +196,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                 <VStack
                   display={{ base: "none", md: "flex" }}
                   alignItems="flex-start"
-                  spacing="1px"
+                  spacing="0px"
                   ml="2"
                 >
                   <Text fontSize="sm">Justina Clark</Text>
@@ -237,11 +234,13 @@ const DashboardContainer = ({ children }: Props) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
+    
     <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
       />
+
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -255,6 +254,8 @@ const DashboardContainer = ({ children }: Props) => {
         </DrawerContent>
       </Drawer>
       <MobileNav onOpen={onOpen} />
+
+      
       <Box ml={{ base: 0, md: 60 }} p="4">
         <Box
           bgColor="white"
@@ -263,7 +264,50 @@ const DashboardContainer = ({ children }: Props) => {
           width="100%"
           height="100%"
         >
-          {children}
+          <Grid templateRows gap={6}>
+          <GridItem w='100%' bg='blue.500'
+  
+  textAlign="center"
+  
+  fontSize="5xl"
+  font-family="Candara"
+  textColor={"white"}>
+
+  Kontrakty</GridItem>
+  <GridItem w='100%' bg='blue.500'
+  
+  textAlign="center"
+  
+  fontSize="5xl"
+  font-family="Candara"
+  textColor={"white"}>
+
+  Kontrahenci</GridItem>
+  <GridItem w='100%' bg='blue.500'
+  
+          textAlign="center"
+          
+          fontSize="5xl"
+          font-family="Candara"
+          textColor={"white"}>
+        
+          Time Line
+        
+    {children}</GridItem>
+    
+  <GridItem w='100%' bg='blue.500'
+
+textAlign="center"
+
+fontSize="5xl"
+font-family="Candara"
+textColor={"white"}>
+
+Kalendarz</GridItem>
+</Grid>
+          
+
+          
         </Box>
       </Box>
     </Box>
