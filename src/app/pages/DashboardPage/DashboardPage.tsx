@@ -330,11 +330,11 @@ const DashboardPage = () => {
                 </VerticalTimelineElement>
               </VerticalTimeline>
         </Box>
-        <Box bg='gray.100' h='600px'>  
+        <Box bg='gray.100' h='700px'>  
         <Button
                   colorScheme="blue"
-                  mb={1}
-                  padding={2}
+                  mb={2}
+                  padding={3}
                   size="md"
                   borderRadius="xl"
                   onClick={onOpen}
@@ -345,8 +345,7 @@ const DashboardPage = () => {
         
               <CalendarModalPage isOpen={isOpen} onClose={onClose} />
               </Stack> 
-            note: nie podoba mi się pozycja kalendarza, ale nie wiem jak to zmienić
-              
+kolor kafelka z datą fajnie jakby był pomarańczowy a kolor krawędzi blue.700
         </Box>
       </SimpleGrid>  
     </DashboardView >
