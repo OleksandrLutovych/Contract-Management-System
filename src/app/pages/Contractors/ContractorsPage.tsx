@@ -37,6 +37,11 @@ const ContractorsPage = () => {
           onClick={() => navigate("/contractors/add")}>Dodaj Kontrahenta
         </Button>
         <Divider />
+        <Button
+          colorScheme="twitter" mb={1} padding={3} size="md" borderRadius="xl"
+          onClick={() => navigate("/contractors/view")}>Pokaż Kontrahenta
+        </Button>
+        <Divider />
         <Flex alignItems="center" gap={1}>
           <Input type="text" placeholder="Wyszukaj..." value={value} onChange={onChange} width="30%"/>
           <Button onClick={() => onSearch(value)}>Pokaż</Button>
@@ -62,8 +67,11 @@ const ContractorsPage = () => {
                   <Td>{nip}</Td>
                   <Td>
                     <Stack direction="row" spacing={1} align="center">
-                      <Button colorScheme="green" padding={3} size="md" borderRadius="xl">
+                      <Button colorScheme="green" padding={3} size="md" borderRadius="xl"
+                      //</Stack>onClick={() => navigate("/contractors/view")}
+                      >
                         <ViewIcon boxSize={4} color="##fcfced" />
+
                       </Button>
                       <Button colorScheme="yellow" padding={3} size="md" borderRadius="xl">
                         <EditIcon boxSize={4} color="#fcfced" />
