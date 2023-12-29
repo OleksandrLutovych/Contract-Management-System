@@ -1,28 +1,60 @@
 import DashboardView from "../../components/DashboardContainer";
-import { SimpleGrid, Box } from '@chakra-ui/react'
-
-
+import { Box, Badge, Flex, Avatar, Text,
+    Card, CardHeader, CardBody, CardFooter, Heading, Stack, StackDivider,  HStack, VStack } from '@chakra-ui/react'
 
 const ContractorsViewPage = () => {
 return (
     <DashboardView>
-<SimpleGrid columns={2} spacing={10}>
-  <Box bg='tomato' height='80px'>
-
-  </Box>
-  <Box bg='tomato' height='80px'>
-
-  </Box>
-  <Box bg='tomato' height='80px'>
-
-  </Box>
-  <Box bg='tomato' height='80px'>
-    
-  </Box>
-  
-</SimpleGrid>
-
-
+        <Stack spacing={2} direction='row'>
+            <Box maxW='750px' borderWidth='1px' borderRadius='lg' overflow='hidden' bg='blue.100' p={4} color='black'>
+                <Flex>
+                    <Avatar src='https://bit.ly/sage-adebayo' />
+                    <Box ml='3'>
+                        <Text fontWeight='bold'>
+                        {/* name */} Segun Adebayo
+                        <Badge ml='2' colorScheme='green'>
+                        New
+                        </Badge>
+                        </Text>
+                        <Text fontSize='sm'>UI Engineer</Text>
+                    
+                    </Box>
+                </Flex> 
+            </Box>
+            <Card w="60%">
+                <CardBody>
+                    <Stack divider={<StackDivider />} spacing='2'>
+                        <Box >
+                            <Heading size='xs' textTransform='uppercase'>
+                            Dane adresowe
+                            </Heading>
+                            <Text pt='2' fontSize='sm'>
+                            country, city, street, postcode 
+                            {/* [{country}, {city}, {street}, {postcode}] */}
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Heading size='xs' textTransform='uppercase'>
+                            Dane kontaktowe
+                            </Heading>
+                            <Text pt='2' fontSize='sm'>
+                            email, phonenumber
+                            {/* [{email}, {phonenumber}] */}
+                            </Text>
+                        </Box>
+                        <Box>
+                            <Heading size='xs' textTransform='uppercase'>
+                            Dane firmy
+                            </Heading>
+                            <Text pt='2' fontSize='sm'>
+                            nip, regon
+                            {/* [{nip}, {regon}] */}
+                            </Text>
+                        </Box>
+                    </Stack>
+                </CardBody>
+            </Card>
+        </Stack>
     </DashboardView>
 );
 };
