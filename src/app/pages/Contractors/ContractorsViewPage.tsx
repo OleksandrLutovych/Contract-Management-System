@@ -6,8 +6,8 @@ const ContractorsViewPage = () => {
 return (
     <DashboardView>
         <Stack spacing={2} direction='row'>
-            <Box maxW='750px' borderWidth='1px' borderRadius='lg' overflow='hidden' bg='blue.100' p={4} color='black'>
-                <Flex>
+            <Box maxW='750px' borderWidth='1px' borderRadius='lg' overflow='hidden' bg='blue.700' p={4} color='white'>
+                <Flex mt="40%">
                     <Avatar src='https://bit.ly/sage-adebayo' />
                     <Box ml='3'>
                         <Text fontWeight='bold'>
