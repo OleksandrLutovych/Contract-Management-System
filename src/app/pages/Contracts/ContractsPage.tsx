@@ -1,5 +1,16 @@
 import DashboardView from "../../components/DashboardContainer";
-import { Table, TableCaption, TableContainer, Tbody, Td, Text, Tfoot, Th, Thead, Tr } from "@chakra-ui/react";
+import {
+  Table,
+  TableCaption,
+  TableContainer,
+  Tbody,
+  Td,
+  Text,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+} from "@chakra-ui/react";
 import {
   Box,
   Button,
@@ -7,10 +18,6 @@ import {
   Stack,
   useDisclosure,
   Heading,
-  Flex,
-  Divider,
-  Input,
-  Spinner,
 } from "@chakra-ui/react";
 import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
 import { useQuery } from "@tanstack/react-query";
@@ -53,36 +60,26 @@ const ContractsPage = () => {
         >
           Kontrakty
         </Heading>
-        
-        <Button
-          colorScheme="blue"
-          mb={1}
-          padding={3}
-          size="md"
-          borderRadius="xl"
-          onClick={() => navigate("/contracts/add")}
-        >
-          Dodaj Kontrakt
-        </Button>
+        <Stack direction="row" spacing={1} align="center">
+          <Button
+            colorScheme="blue"
+            mb={2}
+            padding={3}
+            size="md"
+            borderRadius="xl"
+          >
+            Dodaj Kontrakt
+          </Button>
+        </Stack>
 
-        <Divider />
-
-        <Flex alignItems="center" gap={1}>
-          <Input
-            type="text"
-            placeholder="Wyszukaj..."
-            value={value}
-            onChange={onChange}
-            width="30%"
-          />
-          <Button onClick={() => onSearch(value)}>Pokaż</Button>
-        </Flex>
-
-    <TableContainer>
-      
-          <Table variant='simple'>
-            <TableCaption textColor={"red"}>napisać kod: dla aktualnych kontraktów status "aktywny" i numer kontraktu widoczny w kolorze blue.300, dla nieaktualnych w kolorze red. Teraz z ręki to wpisałam, ale fajnie, gdyby było zautomatyzowane</TableCaption>
-            
+        <TableContainer>
+          <Table variant="simple">
+            <TableCaption textColor={"red"}>
+              napisać kod: dla aktualnych kontraktów status "aktywny" i numer
+              kontraktu widoczny w kolorze blue.300, dla nieaktualnych w kolorze
+              red. Teraz z ręki to wpisałam, ale fajnie, gdyby było
+              zautomatyzowane
+            </TableCaption>
             <Thead>
               <Tr>
                 <Th>Numer Kontraktu</Th>
@@ -97,111 +94,111 @@ const ContractsPage = () => {
 
             <Tbody>
               <Tr>
-              <Td textColor={"blue.300"}>917</Td>
-              <Td>nazwa</Td>
+                <Td textColor={"blue.300"}>917</Td>
+                <Td>nazwa</Td>
                 <Td>partner</Td>
                 <Td>00/00/0000</Td>
                 <Td>11/11/1111</Td>
                 <Td textColor={"blue.300"}>aktywny</Td>
                 <Td>
-                <Stack direction="row" spacing={1} align="center">
-                      <Button
-                        colorScheme="gray"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <ViewIcon boxSize={4} color="##fcfced" />
-                      </Button>
-                      <Button
-                        colorScheme="telegram"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <EditIcon boxSize={4} color="#fcfced" />
-                      </Button>
-                      <Button
-                        colorScheme="red"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <DeleteIcon boxSize={4} color="#fcfced" />
-                      </Button>
-                    </Stack>
+                  <Stack direction="row" spacing={1} align="center">
+                    <Button
+                      colorScheme="gray"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <ViewIcon boxSize={4} color="##fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="telegram"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <EditIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="red"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <DeleteIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                  </Stack>
                 </Td>
               </Tr>
               <Tr>
-              <Td textColor={"blue.300"}>444</Td>
-              <Td>nazwa</Td>
+                <Td textColor={"blue.300"}>444</Td>
+                <Td>nazwa</Td>
                 <Td>partner</Td>
                 <Td>00/00/0000</Td>
                 <Td>11/11/1111</Td>
                 <Td textColor={"blue.300"}>aktywny</Td>
                 <Td>
-                <Stack direction="row" spacing={1} align="center">
-                      <Button
-                        colorScheme="gray"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <ViewIcon boxSize={4} color="##fcfced" />
-                      </Button>
-                      <Button
-                        colorScheme="telegram"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <EditIcon boxSize={4} color="#fcfced" />
-                      </Button>
-                      <Button
-                        colorScheme="red"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <DeleteIcon boxSize={4} color="#fcfced" />
-                      </Button>
-                    </Stack>
+                  <Stack direction="row" spacing={1} align="center">
+                    <Button
+                      colorScheme="gray"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <ViewIcon boxSize={4} color="##fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="telegram"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <EditIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="red"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <DeleteIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                  </Stack>
                 </Td>
               </Tr>
               <Tr>
-              <Td textColor={"red"}>018</Td>
+                <Td textColor={"red"}>018</Td>
                 <Td>nazwa</Td>
                 <Td>partner</Td>
                 <Td>00/00/0000</Td>
                 <Td>11/11/1111</Td>
                 <Td textColor={"red"}>wygasły</Td>
                 <Td>
-                <Stack direction="row" spacing={1} align="center">
-                      <Button
-                        colorScheme="gray"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <ViewIcon boxSize={4} color="##fcfced" />
-                      </Button>
-                      <Button
-                        colorScheme="telegram"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <EditIcon boxSize={4} color="#fcfced" />
-                      </Button>
-                      <Button
-                        colorScheme="red"
-                        padding={3}
-                        size="md"
-                        borderRadius="xl"
-                      >
-                        <DeleteIcon boxSize={4} color="#fcfced" />
-                      </Button>
-                    </Stack>
+                  <Stack direction="row" spacing={1} align="center">
+                    <Button
+                      colorScheme="gray"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <ViewIcon boxSize={4} color="##fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="telegram"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <EditIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                    <Button
+                      colorScheme="red"
+                      padding={3}
+                      size="md"
+                      borderRadius="xl"
+                    >
+                      <DeleteIcon boxSize={4} color="#fcfced" />
+                    </Button>
+                  </Stack>
                 </Td>
               </Tr>
 
@@ -247,9 +244,7 @@ const ContractsPage = () => {
             
             </Tbody>
             <Tfoot>
-              <Tr>
-                
-              </Tr>
+              <Tr></Tr>
             </Tfoot>
           </Table>
         </TableContainer>
