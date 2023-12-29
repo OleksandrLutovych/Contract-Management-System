@@ -12,7 +12,7 @@ const Calendar: FC<Props> = ({ events }) => {
     <FullCalendar
       plugins={[dayGridPlugin]}
       initialView="dayGridMonth"
-      height="550px"
+      height="auto"
       headerToolbar={{
         start: "title",
         center: "",

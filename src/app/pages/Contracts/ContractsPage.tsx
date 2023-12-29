@@ -51,7 +51,7 @@ const ContractsPage = () => {
   return (
     <DashboardView>
       <Box>
-        <Heading
+        {/* <Heading
           textAlign="center"
           mb={4}
           fontSize="me"
@@ -59,7 +59,7 @@ const ContractsPage = () => {
           textColor={"blue.100"}
         >
           Kontrakty
-        </Heading>
+        </Heading> */}
         <Stack direction="row" spacing={1} align="center">
           <Button
             colorScheme="blue"
@@ -111,7 +111,7 @@ const ContractsPage = () => {
                       <ViewIcon boxSize={4} color="##fcfced" />
                     </Button>
                     <Button
-                      colorScheme="telegram"
+                      colorScheme="facebook"
                       padding={3}
                       size="md"
                       borderRadius="xl"
@@ -147,7 +147,7 @@ const ContractsPage = () => {
                       <ViewIcon boxSize={4} color="##fcfced" />
                     </Button>
                     <Button
-                      colorScheme="telegram"
+                      colorScheme="facebook"
                       padding={3}
                       size="md"
                       borderRadius="xl"
@@ -183,7 +183,7 @@ const ContractsPage = () => {
                       <ViewIcon boxSize={4} color="##fcfced" />
                     </Button>
                     <Button
-                      colorScheme="telegram"
+                      colorScheme="facebook"
                       padding={3}
                       size="md"
                       borderRadius="xl"

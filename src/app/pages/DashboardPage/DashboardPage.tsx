@@ -221,7 +221,7 @@ const DashboardPage = () => {
             onClick={() => navigate("/contractors/add")}>Dodaj Kontrahenta
           </Button>
           <Button
-            colorScheme="twitter" mb={1} padding={3} size="md" borderRadius="xl"
+            colorScheme="orange" mb={1} padding={3} ml="2" size="md" borderRadius="xl"
             onClick={() => navigate("/contractors/view")}>Pokaż Kontrahenta
           </Button>
           <Divider />

@@ -26,6 +26,7 @@ import {
   MenuList,
   Image,
   Divider,
+  Stack,
 } from "@chakra-ui/react";
 import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
 import { IconType } from "react-icons";
@@ -64,8 +65,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     <Box
       transition="3s ease"
       bg={useColorModeValue("rgb(203,218,238)", "gray.900")}
-      borderRight="1px"
-      borderRightColor={useColorModeValue("gray.200", "gray.700")}
+      borderRight="5px"
+      borderRightColor={useColorModeValue("blue.700", "gray.700")}
       w={{ base: "full", md: 60 }}
       pos="fixed"
       h="full"
@@ -75,7 +76,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
         <Flex
           h="20"
           alignItems="center"
-          mx="7"
+          mx="3"
           onClick={() => navigate("*")}
           cursor="pointer"
           ml="0px"
@@ -83,8 +84,6 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           <Image
             //src="https://usercentrics.com/wp-content/uploads/2022/09/uc_google_500x500-1.svg?fbclid=IwAR23v3o1HHmRqTs3yj7vn-kt5NOwH_N2gUdmEIEy1msqC1lS_OF4eYlklW8"
             src="https://i.ibb.co/8YGJMbZ/Microsoft-Teams-image-4.png"
-            
-            
           />
           
         </Flex>
@@ -121,7 +120,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: "orange",
+          bg: "orange.400",
           color: "white",
         }}
         {...rest}
@@ -146,12 +145,12 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
   return (
     <Flex
       ml={{ base: 0, md: 60 }}
-      px={{ base: 4, md: 4 }}
+      px={{ base: 4, md: 6 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue("blue.700", "white")}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue("gray.200", "gray.700")}
+      borderBottomColor={useColorModeValue("blue.700", "white")}
       justifyContent={{ base: "space-between", md: "flex-end" }}
       {...rest}
     >
@@ -172,7 +171,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         Logo
       </Text>
 
-      <HStack spacing={{ base: "0", md: "6" }}>
+      <HStack spacing={{ base: "0", md: "3" }}>
         <IconButton
           size="lg"
           variant="ghost"
@@ -182,7 +181,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
-              py={2}
+              py={1}
               transition="all 0.3s"
               _focus={{ boxShadow: "none" }}
             >
@@ -193,17 +192,17 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
                     "https://images.unsplash.com/photo-1619946794135-5bc917a27793?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
                   }
                 />
-                <VStack
+                <HStack
                   display={{ base: "none", md: "flex" }}
                   alignItems="flex-start"
-                  spacing="0px"
-                  ml="2"
+                  spacing="px"
+                  ml="0"
                 >
-                  <Text fontSize="sm">Justina Clark</Text>
-                  <Text fontSize="xs" color="gray.600">
+                  <Text fontSize="sm" color="white">Justina Clark</Text>
+                  <Text fontSize="xs" color="orange"  ml="1" py={0}>
                     Admin
                   </Text>
-                </VStack>
+                </HStack>
                 <Box display={{ base: "none", md: "flex" }}>
                   <FiChevronDown />
                 </Box>
@@ -211,12 +210,11 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             </MenuButton>
             <MenuList
               bg={useColorModeValue("white", "gray.900")}
-              borderColor={useColorModeValue("gray.200", "gray.700")}
+              borderColor={useColorModeValue("blue.700", "gray.700")}
             >
               <MenuItem>Kontrahenci</MenuItem>
               <MenuItem>Klienci</MenuItem>
               <MenuItem>Raporty</MenuItem>
-              <MenuDivider />
               <MenuItem>Kalendarz</MenuItem>
             </MenuList>
           </Menu>
@@ -235,7 +233,7 @@ const DashboardContainer = ({ children }: Props) => {
 
   return (
     
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box minH="100vh" bg={useColorModeValue("blue.900", "gray.900")}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -259,7 +257,7 @@ const DashboardContainer = ({ children }: Props) => {
       <Box ml={{ base: 0, md: 60 }} p="4">
         <Box
           bgColor="white"
-          padding={3}
+          padding={5}
           borderRadius="md"
           width="100%"
           height="100%"

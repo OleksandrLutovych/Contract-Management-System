@@ -29,9 +29,9 @@ const ContractorsPage = () => {
   return (
     <DashboardView>
       <Box width="100%">
-        <Heading
+        {/* <Heading
           textAlign="center" mb={4} fontSize="me" font-family="Candara" textColor={"blue.100"}>Lista Kontrahentów
-        </Heading>
+        </Heading> */}
         <Button
           colorScheme="blue" mb={1} padding={3} size="md" borderRadius="xl"
           onClick={() => navigate("/contractors/add")}>Dodaj Kontrahenta
