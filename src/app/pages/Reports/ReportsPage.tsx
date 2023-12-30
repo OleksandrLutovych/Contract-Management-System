@@ -22,7 +22,7 @@ const ReportsPage = () => {
           >
             Dodaj Raport
           </Button>
-          <Button
+          {/* <Button
             colorScheme="gray"
             mb={2}
             padding={3}
@@ -33,7 +33,7 @@ const ReportsPage = () => {
             Edytuj Raport
           </Button>
           <Button
-            colorScheme="orange"
+            colorScheme="red"
             mb={2}
             padding={3}
             size="md"
@@ -41,7 +41,7 @@ const ReportsPage = () => {
             
           >
             Usuń Raport
-          </Button>
+          </Button> */}
         </Stack>
     </DashboardView>
   );

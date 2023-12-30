@@ -40,7 +40,7 @@ const ContractorsPage = () => {
         
         <Button
           colorScheme="orange" mb={1} padding={3} size="md" borderRadius="xl"
-          onClick={() => navigate("/contractors/view")}>Pokaż Kontrahenta
+          onClick={() => navigate("/contractors/view")}>Podgląd Kontrahenta
         </Button>
         </Stack>
         <Divider />
