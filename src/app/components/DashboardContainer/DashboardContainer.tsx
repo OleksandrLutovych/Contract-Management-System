@@ -116,7 +116,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
       <Flex
         align="center"
         p="4"
-        mx="4"
+        mx="6"
         borderRadius="lg"
         role="group"
         cursor="pointer"
@@ -129,7 +129,7 @@ const NavItem = ({ icon, children, ...rest }: NavItemProps) => {
         {icon && (
           <Icon
             mr="4"
-            fontSize="16"
+            fontSize="18"
             _groupHover={{
               color: "white",
             }}
