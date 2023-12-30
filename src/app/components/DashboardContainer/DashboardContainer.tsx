@@ -1,37 +1,16 @@
-import { GoPeople } from "react-icons/go";
-import { IoNewspaperOutline } from "react-icons/io5";
-import { IoDocumentTextOutline } from "react-icons/io5";
-import { IoCalendarNumberOutline } from "react-icons/io5";
-import { TbReportAnalytics } from "react-icons/tb";
 import {
-  IconButton,
-  Avatar,
-  Box,
-  CloseButton,
-  Flex,
-  HStack,
-  VStack,
-  Icon,
-  useColorModeValue,
-  Text,
-  Drawer,
-  DrawerContent,
-  useDisclosure,
-  BoxProps,
-  FlexProps,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
-  Image,
-  Divider,
-  Stack,
-} from "@chakra-ui/react";
-import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
-import { IconType } from "react-icons";
+  Icon, IconButton, CloseButton, 
+  Image, Avatar, Text,
+  Box, BoxProps, Flex, FlexProps, HStack, Drawer, DrawerContent, Divider,
+  Menu, MenuButton, MenuItem, MenuList,
+  useColorModeValue, useDisclosure,
+  } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
-
+import { IconType } from "react-icons";
+import { GoPeople } from "react-icons/go";
+import { IoNewspaperOutline, IoDocumentTextOutline, IoCalendarNumberOutline } from "react-icons/io5";
+import { TbReportAnalytics } from "react-icons/tb";
+import { FiMenu, FiBell, FiChevronDown } from "react-icons/fi";
 
 interface LinkItemProps {
   name: string;
@@ -53,7 +32,7 @@ interface SidebarProps extends BoxProps {
 }
 
 const LinkItems: Array<LinkItemProps> = [
-  { name: "Kontrachenci", icon: GoPeople, url: "/contractors" },
+  { name: "Kontrahenci", icon: GoPeople, url: "/contractors" },
   { name: "Kontrakty", icon: IoDocumentTextOutline, url: "/contracts" },
   { name: "Raporty", icon: TbReportAnalytics, url: "/reports" },
   { name: "Kalendarz", icon: IoCalendarNumberOutline, url: "/calendar" },
@@ -74,7 +53,6 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
     >
       <Flex alignItems="center" h="250" mx="3">
         <Flex
-          
           alignItems="center"
           mx="4"
           onClick={() => navigate("*")}
@@ -82,11 +60,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           ml="10px"
         >
           <Image
-            //src="https://usercentrics.com/wp-content/uploads/2022/09/uc_google_500x500-1.svg?fbclid=IwAR23v3o1HHmRqTs3yj7vn-kt5NOwH_N2gUdmEIEy1msqC1lS_OF4eYlklW8"
-            // src="https://i.ibb.co/8YGJMbZ/Microsoft-Teams-image-4.png"
             src="https://i.ibb.co/VMrBTrx/Microsoft-Teams-image-5.png"
           />
-          
         </Flex>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
