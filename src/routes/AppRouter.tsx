@@ -7,6 +7,7 @@ import ContractorsViewPage from "../app/pages/Contractors/ContractorsViewPage";
 import DashboardPage from "../app/pages/DashboardPage/DashboardPage";
 import ContractsPage from "../app/pages/Contracts";
 import ContractsAddPage from "../app/pages/Contracts/ContractsAddPage";
+import ContractsViewPage from "../app/pages/Contracts/ContractsViewPage";
 import ReportsPage from "../app/pages/Reports/ReportsPage";
 
 const AppRouter = () => {
@@ -18,6 +19,7 @@ const AppRouter = () => {
       <Route path="/contractors/view" element={<ContractorsViewPage />} />
       <Route path="/contracts" element={<ContractsPage />} />
       <Route path="/contracts/add" element={<ContractsAddPage />} />
+      <Route path="/contracts/view" element={<ContractsViewPage />} />
       <Route path="/reports" element={<ReportsPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/auth" element={<AuthenticationPage />} />

@@ -1,40 +1,87 @@
-import {
-    Box,
-    Button,
-    FormControl,
-    FormErrorMessage,
-    FormLabel,
-    Grid,
-    GridItem,
-    Input,
-    SimpleGrid,
-    Heading,
-  } from "@chakra-ui/react";
-  import { DashboardContainer } from "../../components";
-  import { useForm } from "react-hook-form";
-  import { ContractAddForm } from "./types";
+// import {
+//     Box,
+//     Button,
+//     FormControl,
+//     FormErrorMessage,
+//     FormLabel,
+//     Grid,
+//     GridItem,
+//     Input,
+//     SimpleGrid,
+//     Heading,
+//   } from "@chakra-ui/react";
+
+//   import { useForm } from "react-hook-form";
+
+import { Box, Divider, Heading, useToast } from "@chakra-ui/react";
+import { DashboardContainer } from "../../components";
+import { ContractAddForm } from "./types";
+import { useMutation } from "@tanstack/react-query";
+import { ContractsApi } from "../../../api/contracts-api";
+import { useNavigate } from "react-router-dom";
+import ContractsForm from "./forms";
   
-  const defaultValues: ContractAddForm = {
-    numer: "",
-    nazwa: "",
-    partner: "",
-    dataPodpisania: "",
-    dataWaznosci: "",
-    status: "",
-  };
+  // const defaultValues: ContractAddForm = {
+  //   numer: "",
+  //   nazwa: "",
+  //   partner: "",
+  //   dataPodpisania: "",
+  //   dataWaznosci: "",
+  //   status: "",
+  // };
   
   const ContractsAddPage = () => {
-    const {
-      handleSubmit,
-      register,
-      formState: { errors, isSubmitting },
-    } = useForm<ContractAddForm>({ defaultValues });
+    // const {
+    //   handleSubmit,
+    //   register,
+    //   formState: { errors, isSubmitting },
+    // } = useForm<ContractAddForm>({ defaultValues });
   
-    const onFormSubmit = (value: ContractAddForm) => console.log(value);
-    return (
-      <DashboardContainer>
-        
-       <Heading
+    // const onFormSubmit = (value: ContractAddForm) => console.log(value);
+    // return (
+    //   <DashboardContainer>
+    const toast = useToast();
+    const navigate = useNavigate();
+
+    const { mutate, isPending, isSuccess } = useMutation({
+    mutationFn: async (value: ContractAddForm) =>
+      ContractsApi.create(value),
+  });
+
+  const onFormSubmit = (value: ContractAddForm) => {
+    console.log(value);
+    mutate(value);
+
+    setTimeout(() => {
+      navigate("/contracts");
+    }, 3000);
+  };
+  return (
+    <DashboardContainer>
+        <Box>
+        <Heading
+          textAlign="center"
+          mb={4}
+          fontSize="me"
+          font-family="system-ui"
+          fontWeight="lighter"
+          textColor={"orange.400"}
+        >
+          Nowy Kontrakt
+        </Heading>
+        <Divider></Divider>
+        <ContractsForm isPending={isPending} onFormSubmit={onFormSubmit} />
+        {isSuccess &&
+          toast({
+            title: "Kontrakt utworzony",
+            description: "Zostaniesz przeniesiony do listy kontraktów",
+            status: "success",
+            duration: 2000,
+            isClosable: true,
+          })}
+      
+        </Box>
+       {/* <Heading
           textAlign="center"
           mb={4}
           fontSize="me"
@@ -137,7 +184,7 @@ import {
             </Button>
           </form>
           
-        </Box>
+        </Box> */}
       </DashboardContainer>
     );
   };

@@ -1,31 +1,16 @@
 import DashboardView from "../../components/DashboardContainer";
-import {
-  Table,
-  TableCaption,
-  TableContainer,
-  Tbody,
-  Td,
-  Text,
-  Tfoot,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Stack,
-  useDisclosure,
-  Heading,
-} from "@chakra-ui/react";
-import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
+import { Box, TableContainer, Thead, Table, Tr, Th, Tbody, Td, Divider, Heading, Button, Flex, Input, Spinner, Stack } from "@chakra-ui/react";
+//   TableCaption,
+//   Text,
+//   Tfoot,
+//   ButtonGroup,
+//   useDisclosure,
 import { useQuery } from "@tanstack/react-query";
 import { ContractsApi } from "../../../api/contracts-api";
 import { Contract } from "./types";
+import { DeleteIcon, EditIcon, ViewIcon } from "@chakra-ui/icons";
 import { ChangeEvent, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 
 const ContractsPage = () => {
   const [value, setValue] = useState<string>("");
@@ -36,7 +21,6 @@ const ContractsPage = () => {
     queryFn: async () => {
       const response = await ContractsApi.getAll();
       const { data } = response;
-
       return data;
     },
   });
@@ -48,9 +32,72 @@ const ContractsPage = () => {
     setValue(searchTerm);
   };
 
+
   return (
     <DashboardView>
-      <Box>
+      <Box width="100%">
+      <Stack direction="row" spacing={1} align="center">
+      <Button
+          colorScheme="blue" mb={1} padding={3} size="md" borderRadius="xl"
+          onClick={() => navigate("/contracts/add")}>Dodaj Kontrakt
+        </Button>
+        <Button
+          colorScheme="orange" mb={1} padding={3} size="md" borderRadius="xl"
+          onClick={() => navigate("/contracts/view")}>Pokaż Kontrakty
+        </Button>
+      </Stack>
+      <Divider />
+      <Flex alignItems="center" gap={1}>
+          <Input type="text" placeholder="Wyszukaj..." value={value} onChange={onChange} width="30%"/>
+          <Button onClick={() => onSearch(value)}>Pokaż</Button>
+        </Flex>
+        <Divider />
+        <TableContainer>
+          {isLoading && <Spinner size="lg" ml="50%" />}
+          <Table variant="simple">
+            <Thead>
+              <Th>Numer</Th>
+              <Th>Status</Th>
+              <Th>Nazwa</Th>
+              <Th>Partner Biznesowy</Th>
+              <Th>Data Podpisania</Th>
+              <Th>Data Ważności</Th>
+              <Th>Akcja</Th>
+            </Thead>
+            <Tbody>
+            {data?.map(({ numer, status, nazwa, partner, dataPodpisania, dataWaznosci }) => (
+                <Tr key={numer}>
+                  <Td color="orange.400" fontFamily="system-ui">{numer}</Td>
+                  <Td fontFamily="system-ui">{status}</Td>
+                  <Td fontFamily="system-ui">{nazwa}</Td>
+                  <Td fontFamily="system-ui">{partner}</Td>
+                  <Td fontFamily="system-ui">{dataPodpisania}</Td>
+                  <Td fontFamily="system-ui">{dataWaznosci}</Td>
+                  <Td>
+                    <Stack direction="row" spacing={1} align="center">
+                      <Button colorScheme="gray" padding={3} size="md" borderRadius="xl"
+                    
+                      >
+                        <ViewIcon boxSize={4} color="##fcfced" />
+
+                      </Button>
+                      <Button colorScheme="facebook" padding={3} size="md" borderRadius="xl">
+                        <EditIcon boxSize={4} color="#fcfced" />
+                      </Button>
+                      <Button colorScheme="red" padding={3} size="md" borderRadius="xl">
+                        <DeleteIcon boxSize={4} color="#fcfced" />
+                      </Button>
+                    </Stack>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+      </Box>
+    </DashboardView>
+  );
+};
         {/* <Heading
           textAlign="center"
           mb={4}
@@ -60,7 +107,7 @@ const ContractsPage = () => {
         >
           Kontrakty
         </Heading> */}
-        <Stack direction="row" spacing={1} align="center">
+        {/* <Stack direction="row" spacing={1} align="center">
           <Button
             colorScheme="blue"
             mb={2}
@@ -248,10 +295,7 @@ const ContractsPage = () => {
               <Tr></Tr>
             </Tfoot>
           </Table>
-        </TableContainer>
-      </Box>
-    </DashboardView>
-  );
-};
+        </TableContainer> */}
+ 
 
 export default ContractsPage;
