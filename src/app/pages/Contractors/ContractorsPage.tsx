@@ -29,6 +29,7 @@ const ContractorsPage = () => {
   return (
     <DashboardView>
       <Box width="100%">
+      <Stack direction="row" spacing={1} align="center">
         {/* <Heading
           textAlign="center" mb={4} fontSize="me" font-family="Candara" textColor={"blue.100"}>Lista Kontrahentów
         </Heading> */}
@@ -36,11 +37,12 @@ const ContractorsPage = () => {
           colorScheme="blue" mb={1} padding={3} size="md" borderRadius="xl"
           onClick={() => navigate("/contractors/add")}>Dodaj Kontrahenta
         </Button>
-        <Divider />
+        
         <Button
-          colorScheme="twitter" mb={1} padding={3} size="md" borderRadius="xl"
+          colorScheme="orange" mb={1} padding={3} size="md" borderRadius="xl"
           onClick={() => navigate("/contractors/view")}>Pokaż Kontrahenta
         </Button>
+        </Stack>
         <Divider />
         <Flex alignItems="center" gap={1}>
           <Input type="text" placeholder="Wyszukaj..." value={value} onChange={onChange} width="30%"/>
