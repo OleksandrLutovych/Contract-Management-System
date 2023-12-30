@@ -67,6 +67,7 @@ const ContractsPage = () => {
             padding={3}
             size="md"
             borderRadius="xl"
+            onClick={() => navigate("/contracts/add")}
           >
             Dodaj Kontrakt
           </Button>

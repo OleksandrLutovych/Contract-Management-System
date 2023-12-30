@@ -26,10 +26,20 @@ const ContractorsAddPage = () => {
   return (
     <DashboardContainer>
       <Box>
-        <Heading size="md" textAlign="center">
+        {/* <Heading size="md" textAlign="center">
           Nowy kontrahent
+        </Heading> */}
+        <Heading
+          textAlign="center"
+          mb={4}
+          fontSize="me"
+          font-family="system-ui"
+          fontWeight="lighter"
+          textColor={"orange.400"}
+        >
+          Nowy Kontrahent
         </Heading>
-        <Divider />
+        
         <ContractorsForm isPending={isPending} onFormSubmit={onFormSubmit} />
         {isSuccess &&
           toast({

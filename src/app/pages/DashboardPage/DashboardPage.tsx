@@ -287,7 +287,7 @@ const DashboardPage = () => {
             onClick={() => navigate("/contractors/view")}>Pokaż Kontrahenta
           </Button>
           <Divider />
-          <TableContainer>
+          {/* <TableContainer>
           <Table variant="simple">
               <Thead>
                 <Tr>
@@ -325,7 +325,7 @@ const DashboardPage = () => {
                 ))}
               </Tbody>
             </Table>
-          </TableContainer>  
+          </TableContainer>   */}
           
         </Box>
         <Box bg='blue.500' borderRadius='xl'>

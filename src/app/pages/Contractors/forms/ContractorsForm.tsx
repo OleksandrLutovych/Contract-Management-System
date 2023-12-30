@@ -1,7 +1,9 @@
 import {
   Button,
+  Divider,
   FormControl,
   FormLabel,
+  Heading,
   Input,
   SimpleGrid,
   Text,
@@ -47,8 +49,12 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
             );
           }
         })} */}
-        <FormLabel>
-          Nazwa
+        
+        <Heading size='sm' textTransform='uppercase' color="orange.400" font-family="system-ui"
+          fontWeight="lighter">
+                            Dane firmy
+                            </Heading>
+        <FormLabel font-family="system-ui">Nazwa
           <Input
             id="name"
             placeholder="Nazwa"
@@ -62,12 +68,13 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
           />
           {errors.name && <Text color="red">{errors.name.message}</Text>}
         </FormLabel>
-        <SimpleGrid columns={2} spacing={2} mb={6}>
-          <FormLabel>
+
+        <SimpleGrid columns={2} spacing={2} mb={2}>
+          <FormLabel font-family="system-ui">
             NIP
             <Input
               id="nip"
-              placeholder="10 cyfrowy numer"
+              placeholder="10-cyfrowy numer"
               {...register("nip", {
                 required: "This is required",
                 minLength: {
@@ -81,11 +88,11 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
               })}
             />
           </FormLabel>
-          <FormLabel>
+          <FormLabel font-family="system-ui">
             Regon
             <Input
               id="regon"
-              placeholder="9 cyfrowy numer"
+              placeholder="9-cyfrowy numer"
               {...register("regon", {
                 required: "This is required",
                 minLength: {
@@ -96,37 +103,14 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
             />
           </FormLabel>
         </SimpleGrid>
-
-        <SimpleGrid columns={2} spacing={2} mb={6}>
-          <FormLabel>
-            Kraj
-            <Input
-              id="country"
-              placeholder="Polska"
-              {...register("country", {
-                required: "This is required",
-                minLength: {
-                  value: 4,
-                  message: "Minimum length should be 4",
-                },
-              })}
-            />
-          </FormLabel>
-          <FormLabel>
-            Miasto
-            <Input
-              id="city"
-              placeholder="Bydgoszcz"
-              {...register("city", {
-                required: "This is required",
-                minLength: {
-                  value: 4,
-                  message: "Minimum length should be 4",
-                },
-              })}
-            />
-          </FormLabel>
-          <FormLabel>
+        <Divider/>
+        <Heading size='sm' textTransform='uppercase' color="orange.400" font-family="system-ui"
+          fontWeight="lighter">
+                            Dane adresowe
+                            </Heading>
+        
+        <SimpleGrid columns={2} spacing={2} mb={2}>
+        <FormLabel font-family="system-ui">
             Ulica
             <Input
               id="street"
@@ -140,7 +124,36 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
               })}
             />
           </FormLabel>
-          <FormLabel>
+          
+          <FormLabel font-family="system-ui">
+            Miasto
+            <Input
+              id="city"
+              placeholder="Bydgoszcz"
+              {...register("city", {
+                required: "This is required",
+                minLength: {
+                  value: 4,
+                  message: "Minimum length should be 4",
+                },
+              })}
+            />
+          </FormLabel>
+          <FormLabel font-family="system-ui">
+            Kraj
+            <Input
+              id="country"
+              placeholder="Polska"
+              {...register("country", {
+                required: "This is required",
+                minLength: {
+                  value: 4,
+                  message: "Minimum length should be 4",
+                },
+              })}
+            />
+          </FormLabel>
+          <FormLabel font-family="system-ui">
             Kod pocztowy
             <Input
               id="postcode"
@@ -155,8 +168,14 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
             />
           </FormLabel>
         </SimpleGrid>
+<Divider/>
+        <Heading size='sm' textTransform='uppercase' color="orange.400" font-family="system-ui"
+          fontWeight="lighter">
+                            Dane kontaktowe
+                            </Heading>
+
         <SimpleGrid columns={2} spacing={2} mb={6}>
-          <FormLabel>
+          <FormLabel font-family="system-ui">
             Numer telefonu
             <Input
               id="phonenumber"
@@ -170,7 +189,7 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
               })}
             />
           </FormLabel>
-          <FormLabel>
+          <FormLabel font-family="system-ui">
             Adres email
             <Input
               id="email"
@@ -186,9 +205,17 @@ const ContractorsForm: FC<Props> = ({ onFormSubmit, isPending }) => {
           </FormLabel>
         </SimpleGrid>
       </FormControl>
-      <Button mt={4} colorScheme="teal" isLoading={isPending} type="submit">
-        Utworz
-      </Button>
+      {/* <Button mt={4} colorScheme="teal" isLoading={isPending} type="submit">
+        Dodaj
+      </Button> */}
+      <Button
+              mt={4}
+              colorScheme="orange"
+              isLoading={isPending}
+              type="submit"
+            >
+              Dodaj
+            </Button>
     </form>
   );
 };

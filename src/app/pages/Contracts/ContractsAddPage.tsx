@@ -39,9 +39,9 @@ import {
           mb={4}
           fontSize="me"
           font-family="Candara"
-          textColor={"blue.100"}
+          textColor={"orange.400"}
         >
-          Dodaj Kontrakt
+          Nowy Kontrakt
         </Heading>
         <Box>
           <form onSubmit={handleSubmit(onFormSubmit)}>
@@ -129,7 +129,7 @@ import {
             </FormControl>
             <Button
               mt={4}
-              colorScheme="teal"
+              colorScheme="orange"
               isLoading={isSubmitting}
               type="submit"
             >

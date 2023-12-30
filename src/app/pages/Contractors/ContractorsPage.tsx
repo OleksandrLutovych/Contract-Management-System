@@ -48,6 +48,7 @@ const ContractorsPage = () => {
           <Input type="text" placeholder="Wyszukaj..." value={value} onChange={onChange} width="30%"/>
           <Button onClick={() => onSearch(value)}>Pokaż</Button>
         </Flex>
+        <Divider />
         <TableContainer>
           {isLoading && <Spinner size="lg" ml="50%" />}
           <Table variant="simple">
