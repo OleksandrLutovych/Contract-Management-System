@@ -63,19 +63,19 @@ const ContractorsPage = () => {
             <Tbody>
               {data?.map(({ name, city, country, email, nip }) => (
                 <Tr key={nip}>
-                  <Td>{name}</Td>
-                  <Td>{country}, {city}</Td>
-                  <Td>{email}</Td>
-                  <Td>{nip}</Td>
+                  <Td color="orange.400" fontFamily="system-ui">{name}</Td>
+                  <Td fontFamily="system-ui">{country}, {city}</Td>
+                  <Td fontFamily="system-ui">{email}</Td>
+                  <Td fontFamily="system-ui">{nip}</Td>
                   <Td>
                     <Stack direction="row" spacing={1} align="center">
-                      <Button colorScheme="green" padding={3} size="md" borderRadius="xl"
+                      <Button colorScheme="gray" padding={3} size="md" borderRadius="xl"
                       //</Stack>onClick={() => navigate("/contractors/view")}
                       >
                         <ViewIcon boxSize={4} color="##fcfced" />
 
                       </Button>
-                      <Button colorScheme="yellow" padding={3} size="md" borderRadius="xl">
+                      <Button colorScheme="facebook" padding={3} size="md" borderRadius="xl">
                         <EditIcon boxSize={4} color="#fcfced" />
                       </Button>
                       <Button colorScheme="red" padding={3} size="md" borderRadius="xl">
