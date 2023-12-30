@@ -6,12 +6,15 @@ import { ContractsApi } from "../../../api/contracts-api";
 import { Contract } from "../Contracts/types";
 import { Contractor } from "../Contractors/types";
 import { CalendarIcon, CheckCircleIcon, CheckIcon, WarningTwoIcon, BellIcon, ViewIcon, DeleteIcon, EditIcon} from '@chakra-ui/icons'
-import { TableContainer, Divider, Box, Stack, SimpleGrid, GridItem, useDisclosure, Button, Thead, Table, Tr, Th, Tbody, Td, Heading  } from '@chakra-ui/react'
+import { TableContainer, Divider, Box, Text, Stack, SimpleGrid, GridItem, useDisclosure, Button, Thead, Table, Tr, Th, Tbody, Td, Heading  } from '@chakra-ui/react'
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import 'react-vertical-timeline-component/style.min.css';
+
+
+
 
 const DashboardPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -36,6 +39,8 @@ const DashboardPage = () => {
     },
   });
   
+  
+
   return (
     <DashboardView>
       <SimpleGrid columns={2} spacing={8}>
@@ -52,6 +57,63 @@ const DashboardPage = () => {
         </Button>
         <Divider />
         <TableContainer>
+          <Table>
+            <Thead>
+              <Tr>
+                <Th fontSize="l">Rodzaj kontraktu</Th>
+                <Th fontSize="l">Liczba</Th>
+              </Tr>
+            </Thead>
+
+            <Tbody>
+              <Tr>
+              <Td>Aktywne</Td>
+              <Td textColor={"blue.300"}>15</Td>
+              <Td>  
+                      <Button
+                        colorScheme="gray"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <ViewIcon boxSize={4} color="##fcfced" />
+                      </Button> 
+                </Td>
+              </Tr>
+              <Tr>
+              <Td>Wygasłe</Td>
+              <Td textColor={"red"}>4</Td>
+              <Td>  
+                      <Button
+                        colorScheme="gray"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <ViewIcon boxSize={4} color="##fcfced" />
+                      </Button> 
+                </Td>
+              </Tr>
+              <Tr>
+              <Td>Zarchiwizowane</Td>
+              <Td>8</Td>
+              <Td>     
+                      <Button
+                        colorScheme="gray"
+                        padding={3}
+                        size="md"
+                        borderRadius="xl"
+                      >
+                        <ViewIcon boxSize={4} color="##fcfced" />
+                      </Button> 
+                </Td>
+              </Tr>
+            </Tbody>
+          </Table>  
+        </TableContainer>
+        
+        
+        {/* <TableContainer>
           <Table variant='simple'>
           <Thead>
               <Tr>
@@ -213,7 +275,7 @@ const DashboardPage = () => {
               ))}
             </Tbody>
           </Table>
-        </TableContainer>
+        </TableContainer> */}
         </Box>
         <Box >
           <Button

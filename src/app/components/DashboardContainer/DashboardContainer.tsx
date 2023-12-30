@@ -60,7 +60,8 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
           ml="10px"
         >
           <Image
-            src="https://i.ibb.co/VMrBTrx/Microsoft-Teams-image-5.png"
+            //src="https://i.ibb.co/VMrBTrx/Microsoft-Teams-image-5.png"
+            src="https://i.ibb.co/xzZgLpV/Microsoft-Teams-image-6.png"
           />
         </Flex>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
