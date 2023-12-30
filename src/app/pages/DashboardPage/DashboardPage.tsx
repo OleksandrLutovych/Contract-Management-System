@@ -38,7 +38,7 @@ const DashboardPage = () => {
   
   return (
     <DashboardView>
-      <SimpleGrid columns={2} spacing={10}>
+      <SimpleGrid columns={2} spacing={8}>
         <Box  >
         <Button
           colorScheme="blue"
@@ -264,16 +264,16 @@ const DashboardPage = () => {
               </Tbody>
             </Table>
           </TableContainer>  
-          note: trzeba pomyśleć ile wierszy będzie wyświetlanych
+          
         </Box>
-        <Box bg='blue.500'>
+        <Box bg='blue.500' borderRadius='xl'>
         <VerticalTimeline>
                 <VerticalTimelineElement
                   className="vertical-timeline-element--work"
-                  contentStyle={{ background: 'rgb(243, 180, 33)', color: '#fff' }}
-                  contentArrowStyle={{ borderRight: '7px solid  rgb(243, 180, 33)' }}
+                  contentStyle={{ background: 'rgb(242, 136, 70)', color: '#fff' }}
+                  contentArrowStyle={{ borderRight: '7px solid  rgb(242, 136, 70)' }}
                   date="2011 - present"
-                  iconStyle={{ background: 'rgb(243, 180, 33)', color: '#fff' }}
+                  iconStyle={{ background: 'rgb(242, 136, 70)', color: '#fff' }}
                   icon={<CalendarIcon />}
                 >
                   <h3 className="vertical-timeline-element-title">Spotkanie Biznesowe</h3>
@@ -285,10 +285,10 @@ const DashboardPage = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                   className="vertical-timeline-element--work"
-                  contentStyle={{ background: 'rgb(243, 58, 33)', color: '#fff' }}
-                  contentArrowStyle={{ borderRight: '7px solid  rgb(243, 58, 33)' }}
+                  contentStyle={{ background: 'rgb(222, 82, 47)', color: '#fff' }}
+                  contentArrowStyle={{ borderRight: '7px solid  rgb(222, 82, 47)' }}
                   date="2011 - present"
-                  iconStyle={{ background: 'rgb(243, 58, 33)', color: '#fff' }}
+                  iconStyle={{ background: 'rgb(222, 82, 47)', color: '#fff' }}
                   icon={<WarningTwoIcon />}
                 >
                   <h3 className="vertical-timeline-element-title">Wygasająca umowa!</h3>
@@ -300,10 +300,10 @@ const DashboardPage = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                   className="vertical-timeline-element--work"
-                  contentStyle={{ background: 'rgb(8, 166, 40)', color: '#fff' }}
-                  contentArrowStyle={{ borderRight: '7px solid  rgb(8, 166, 40)' }}
+                  contentStyle={{ background: 'rgb(157, 196, 224)', color: '#fff' }}
+                  contentArrowStyle={{ borderRight: '7px solid  rgb(157, 196, 224)' }}
                   date="2011 - present"
-                  iconStyle={{ background: 'rgb(8, 166, 40)', color: '#fff' }}
+                  iconStyle={{ background: 'rgb(157, 196, 224)', color: '#fff' }}
                   icon={<CheckIcon />}
                 >
                   <h3 className="vertical-timeline-element-title">Dodano nowego klienta</h3>
@@ -315,10 +315,10 @@ const DashboardPage = () => {
                 </VerticalTimelineElement>
                 <VerticalTimelineElement
                   className="vertical-timeline-element--work"
-                  contentStyle={{ background: 'rgb(15, 156, 191)', color: '#fff' }}
-                  contentArrowStyle={{ borderRight: '7px solid  rgb(15, 156, 191)' }}
+                  contentStyle={{ background: 'rgb(41, 52, 105)', color: '#fff' }}
+                  contentArrowStyle={{ borderRight: '7px solid  rgb(41, 52, 105)' }}
                   date="2011 - present"
-                  iconStyle={{ background: 'rgb(15, 156, 191)', color: '#fff' }}
+                  iconStyle={{ background: 'rgb(41, 52, 105)', color: '#fff' }}
                   icon={<ViewIcon />}
                 >
                   <h3 className="vertical-timeline-element-title">Podsumowanie miesięczne</h3>
@@ -330,8 +330,8 @@ const DashboardPage = () => {
                 </VerticalTimelineElement>
               </VerticalTimeline>
         </Box>
-        <Box bg='gray.100' h='700px'>  
-        <Button
+        <Box bg='gray.100' h='700px' borderRadius='xl'>  
+        <Button 
                   colorScheme="blue"
                   mb={2}
                   padding={3}
@@ -345,7 +345,6 @@ const DashboardPage = () => {
         
               <CalendarModalPage isOpen={isOpen} onClose={onClose} />
               </Stack> 
-kolor kafelka z datą fajnie jakby był pomarańczowy a kolor krawędzi blue.700
         </Box>
       </SimpleGrid>  
     </DashboardView >

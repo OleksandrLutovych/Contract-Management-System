@@ -64,7 +64,7 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue("rgb(203,218,238)", "gray.900")}
+      bg={useColorModeValue("white", "gray.900")}
       borderRight="5px"
       borderRightColor={useColorModeValue("blue.700", "gray.700")}
       w={{ base: "full", md: 60 }}
@@ -72,24 +72,25 @@ const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
       h="full"
       {...rest}
     >
-      <Flex h="20" alignItems="center" mx="5">
+      <Flex alignItems="center" h="250" mx="3">
         <Flex
-          h="20"
+          
           alignItems="center"
-          mx="3"
+          mx="4"
           onClick={() => navigate("*")}
           cursor="pointer"
-          ml="0px"
+          ml="10px"
         >
           <Image
             //src="https://usercentrics.com/wp-content/uploads/2022/09/uc_google_500x500-1.svg?fbclid=IwAR23v3o1HHmRqTs3yj7vn-kt5NOwH_N2gUdmEIEy1msqC1lS_OF4eYlklW8"
-            src="https://i.ibb.co/8YGJMbZ/Microsoft-Teams-image-4.png"
+            // src="https://i.ibb.co/8YGJMbZ/Microsoft-Teams-image-4.png"
+            src="https://i.ibb.co/VMrBTrx/Microsoft-Teams-image-5.png"
           />
           
         </Flex>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
-      <Divider />
+     
 
       {LinkItems.map((link) => (
         <NavItem
